@@ -208,6 +208,10 @@ def main():
         exec(open(os.path.join(HERE, 'pages', name + '.py')).read(), {**globals(), 'ns': ns})
         page(**ns['PAGE'])
         paths.append(ns['PAGE']['path'])
+    page(path='/404/', title='Page not found | Lenny Winnemuller', desc='This page does not exist.',
+         body='<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/workshop/">free workshop</a>.</p></div></section>')
+    shutil.move(os.path.join(OUT, '404', 'index.html'), os.path.join(OUT, '404.html'))
+    os.rmdir(os.path.join(OUT, '404'))
     for p in POSTS:
         build_post(p)
         paths.append(p['path'])
