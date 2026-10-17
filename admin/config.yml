@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: LennartWinnemuller/lennywinnemuller-site
+  branch: main
+  commit_messages:
+    create: "New update: {{slug}}"
+    update: "Edit update: {{slug}}"
+    delete: "Delete update: {{slug}}"
+
+site_url: https://lennywinnemuller.com
+display_url: https://lennywinnemuller.com
+locale: en
+
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: updates
+    label: Market updates
+    label_singular: Market update
+    description: "Weekly market updates. Education only: no buy, sell or hold advice, no price targets."
+    folder: content/updates
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    sortable_fields: [date, title]
+    summary: "{{title}} ({{date}})"
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Short summary (shown in the list and in Google)", name: description, widget: text }
+      - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [image] }
