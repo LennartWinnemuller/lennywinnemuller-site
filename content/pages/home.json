@@ -1,17 +1,8 @@
 {
-  "about_eyebrow": "About me",
-  "about_title": "Long-term investing is a skill. I teach it.",
-  "about_text": "I'm Lenny Winnemuller, based in Amsterdam. I graduated with honors in psychology from the University of Amsterdam, specializing in group behavior, and also hold a degree in entrepreneurship. I've worked as a professional in the financial markets in the Netherlands and Canada, and today I invest independently.\n\nI also teach long-term investing in a Canadian trader education program.",
+  "updates_title": "Weekly note for long-term investors",
   "about_button": "More about me",
-  "photo": "https://embed.filekitcdn.com/e/omtcB3AA6xNUtQV1kJDToV/cdtD5ksXrdiA5LwdMvjuKv",
-  "updates_eyebrow": "Market updates",
-  "updates_title": "A weekly note for long-term investors",
-  "updates_intro": "Every week a short update on what moved the markets and what it means for long-term investors. No tips, no predictions, no advice.",
+  "about_title": "I teach the skill of long-term investing in the US stock market",
   "updates_button": "All market updates",
-  "program_eyebrow": "The 12-month program",
-  "program_title": "Build your own long-term investing system in one year",
-  "program_intro": "Twelve months of personal coaching in which you build your own system, step by step, and learn to run it on your own.",
-  "program_tag": "You walk away with",
   "program_cards": [
     {
       "title": "Investment Policy Statement",
@@ -31,6 +22,15 @@
     }
   ],
   "program_button": "See the full program",
-  "seo_title": "Lenny Winnemuller | Coaching in Long-Term Investing",
-  "seo_description": "Free online workshop on 29 October 2026: Why Great Investors Study More and Trade Less. Lenny Winnemuller teaches long-term investing as a skill. Education and coaching, no investment advice."
+  "program_eyebrow": "The 12-month program",
+  "program_intro": "Twelve months of personal coaching in which you build your own system, step by step, and learn to run it on your own.",
+  "photo": "https://embed.filekitcdn.com/e/omtcB3AA6xNUtQV1kJDToV/cdtD5ksXrdiA5LwdMvjuKv",
+  "updates_eyebrow": "Market updates",
+  "seo_title": "Lenny Winnemuller | Teaching the skill of Long-Term Investing",
+  "about_eyebrow": "About me",
+  "updates_intro": "Weekly updates on what moved the markets and what it means for long-term investors",
+  "seo_description": "Open online workshop on 29 October 2026: Why Great Investors Study More and Trade Less. Lenny Winnemuller teaches long-term investing as a skill. Education and coaching, no investment advice.",
+  "program_title": "Build your own long-term investing system in one year",
+  "about_text": "My name is Lenny Winnemuller, based in Amsterdam, the Netherlands. I graduated with honors in psychology at the University of Amsterdam (specializing in group behavior), and also hold a degree in entrepreneurship. I've worked as a professional in the financial markets in the Netherlands and Canada. Today I invest independently besides teaching long-term investing in the Canadian trader education program Peak Capital Trading.",
+  "program_tag": "You walk away with"
 }
