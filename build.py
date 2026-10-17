@@ -217,7 +217,10 @@ def main():
         build_post(p)
         paths.append(p['path'])
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    sm += ''.join(f'  <url><loc>{SITE}{p}</loc></url>\n' for p in paths)
+    dates = {p['path']: p['date'] for p in POSTS}
+    if POSTS:
+        dates['/updates/'] = dates['/'] = POSTS[0]['date']
+    sm += ''.join(f'  <url><loc>{SITE}{p}</loc>' + (f'<lastmod>{dates[p]}</lastmod>' if p in dates else '') + '</url>\n' for p in paths)
     sm += '</urlset>\n'
     open(os.path.join(OUT, 'sitemap.xml'), 'w').write(sm)
     print('built', paths)
