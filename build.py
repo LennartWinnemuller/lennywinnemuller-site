@@ -85,7 +85,8 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, kit=Fa
     head_ld = ''
     if graph:
         head_ld = '<script type="application/ld+json">\n' + json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=2, ensure_ascii=False) + '\n</script>\n'
-    nav = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == active else ""}>{t}</a>' for h, t in NAV)
+    current = ' aria-current="page"'
+    nav = ''.join(f'<a href="{h}"{current if h == active else ""}>{t}</a>' for h, t in NAV)
     ann = ('<div class="announce">Free online workshop · Thursday 29 October, 19:30 Amsterdam time · '
            '<a href="/workshop/">Reserve your spot</a></div>\n') if announce else ''
     fnav = ''.join(f'<a href="{h}">{t}</a>' for h, t in [('/', 'Home')] + NAV + [('/privacy/', 'Privacy policy')])
@@ -137,12 +138,12 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, kit=Fa
     open(dest, 'w').write(html)
 
 def load_posts():
-    import glob, datetime, markdown, yaml
+    import glob, datetime
+    from mdlite import parse_front_matter, markdown
     posts = []
     for f in glob.glob(os.path.join(HERE, 'content', 'updates', '*.md')):
         raw = open(f, encoding='utf-8').read()
-        _, fm, body = raw.split('---', 2)
-        m = yaml.safe_load(fm)
+        m, body = parse_front_matter(raw)
         d = m['date']
         if isinstance(d, str):
             d = datetime.date.fromisoformat(d[:10])
@@ -154,7 +155,7 @@ def load_posts():
         m['week'] = f'Week {week}, {year}'
         m['title'] = html.escape(str(m['title']).strip())
         m['description'] = html.escape(str(m.get('description', '')).strip())
-        m['body'] = markdown.markdown(body, extensions=['extra', 'sane_lists'])
+        m['body'] = markdown(body)
         m['slug'] = os.path.basename(f)[:-3]
         m['path'] = f"/updates/{m['slug']}/"
         posts.append(m)
