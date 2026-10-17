@@ -3,9 +3,11 @@ backend:
   repo: LennartWinnemuller/lennywinnemuller-site
   branch: main
   commit_messages:
-    create: "New update: {{slug}}"
-    update: "Edit update: {{slug}}"
-    delete: "Delete update: {{slug}}"
+    create: "New {{collection}}: {{slug}}"
+    update: "Edit {{collection}}: {{slug}}"
+    delete: "Delete {{collection}}: {{slug}}"
+    uploadMedia: "Upload image: {{path}}"
+    deleteMedia: "Delete image: {{path}}"
 
 site_url: https://lennywinnemuller.com
 display_url: https://lennywinnemuller.com
@@ -29,3 +31,146 @@ collections:
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
       - { label: "Short summary (shown in the list and in Google)", name: description, widget: text }
       - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [image] }
+
+  - name: pages
+    label: Pages
+    description: "The texts and photos of the website. Change a text, click Publish, and the site updates within about a minute. Tip: keep photos under 1 MB (JPG or WebP)."
+    format: json
+    editor: { preview: false }
+    files:
+      - name: site
+        label: "Site settings (menu banner, footer, disclaimer)"
+        file: content/pages/site.json
+        fields:
+          - { label: "Banner text at the top of every page", name: announce_text, widget: string }
+          - { label: "Banner link text", name: announce_link, widget: string }
+          - { label: "Footer line under your name", name: footer_tagline, widget: string }
+          - { label: "Email address", name: email, widget: string }
+          - { label: "Disclaimer (footer, every page)", name: disclaimer, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Disclaimer under each market update", name: update_disclaimer, widget: text }
+          - { label: "Workshop block at the bottom of pages: small line", name: cta_eyebrow, widget: string }
+          - { label: "Workshop block: title", name: cta_title, widget: string }
+          - { label: "Workshop block: text", name: cta_text, widget: text }
+          - { label: "Workshop block: button", name: cta_button, widget: string }
+
+      - name: home
+        label: "Homepage"
+        file: content/pages/home.json
+        fields:
+          - { label: "About me: small line", name: about_eyebrow, widget: string }
+          - { label: "About me: title", name: about_title, widget: string }
+          - { label: "About me: text", name: about_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "About me: button", name: about_button, widget: string }
+          - { label: "Photo on the homepage", name: photo, widget: image, choose_url: true }
+          - { label: "Market updates: small line", name: updates_eyebrow, widget: string }
+          - { label: "Market updates: title", name: updates_title, widget: string }
+          - { label: "Market updates: intro", name: updates_intro, widget: text }
+          - { label: "Market updates: button", name: updates_button, widget: string }
+          - { label: "Program: small line", name: program_eyebrow, widget: string }
+          - { label: "Program: title", name: program_title, widget: string }
+          - { label: "Program: intro", name: program_intro, widget: text }
+          - { label: "Program: label on each card", name: program_tag, widget: string }
+          - label: "Program: cards"
+            name: program_cards
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: "Program: button", name: program_button, widget: string }
+          - &seo_title { label: "Google title", name: seo_title, widget: string, hint: "Shown as the blue link in Google. Keep it under about 60 characters." }
+          - &seo_desc { label: "Google description", name: seo_description, widget: text, hint: "Shown under the link in Google. Keep it under about 155 characters." }
+
+      - name: workshop
+        label: "Free workshop"
+        file: content/pages/workshop.json
+        fields:
+          - { label: "Small line above the title", name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: string }
+          - { label: "Date line", name: date_line, widget: string }
+          - { label: "Details line (time zones, duration)", name: details_line, widget: string }
+          - { label: "Intro above the list", name: learn_intro, widget: string }
+          - { label: "What you'll learn", name: learn_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Sign-up form: title", name: form_title, widget: string }
+          - { label: "Sign-up form: line under the title", name: form_subtitle, widget: string }
+          - { label: "Sign-up form: button", name: form_button, widget: string }
+          - { label: "Sign-up form: small print", name: form_fineprint, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Who it's for: title", name: for_title, widget: string }
+          - { label: "Who it's for: points", name: for_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "After you sign up: text", name: after_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Start (for Google)", name: event_start, widget: string, hint: "Format: 2026-10-29T19:30:00+01:00" }
+          - { label: "End (for Google)", name: event_end, widget: string, hint: "Format: 2026-10-29T20:30:00+01:00" }
+          - *seo_title
+          - *seo_desc
+
+      - name: about
+        label: "About me"
+        file: content/pages/about.json
+        fields:
+          - { label: "Small line above the title", name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: "Photo (also used for Google and social media)", name: photo, widget: image, choose_url: true }
+          - { label: Text, name: text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - { label: "Second section: title", name: section_title, widget: string }
+          - { label: "Second section: text", name: section_text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - *seo_title
+          - *seo_desc
+
+      - name: updates_page
+        label: "Market updates page"
+        file: content/pages/updates.json
+        fields:
+          - { label: "Small line above the title", name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: text }
+          - *seo_title
+          - *seo_desc
+
+      - name: program
+        label: "12-month program"
+        file: content/pages/program.json
+        fields:
+          - { label: "Small line above the title", name: eyebrow, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Intro, name: intro, widget: text }
+          - { label: "Deliverables: title", name: deliverables_title, widget: string }
+          - label: Deliverables
+            name: deliverables
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: "How we work: title", name: how_title, widget: string }
+          - label: "How we work"
+            name: how
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: "Year overview: title", name: year_title, widget: string }
+          - label: Quarters
+            name: quarters
+            widget: list
+            summary: "{{fields.label}}: {{fields.title}}"
+            fields:
+              - { label: "Label (e.g. Months 1–3)", name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Topics, name: topics, widget: list, field: { label: Topic, name: topic, widget: string } }
+          - { label: "Year overview: note underneath", name: year_note, widget: text }
+          - { label: "FAQ: title", name: faq_title, widget: string }
+          - label: "FAQ"
+            name: faq
+            widget: list
+            summary: "{{fields.question}}"
+            fields:
+              - { label: Question, name: question, widget: string }
+              - { label: Answer, name: answer, widget: text }
+          - { label: "Bottom block: small line", name: cta_eyebrow, widget: string }
+          - { label: "Bottom block: title", name: cta_title, widget: string }
+          - { label: "Bottom block: text", name: cta_text, widget: text }
+          - { label: "Bottom block: button", name: cta_button, widget: string }
+          - *seo_title
+          - *seo_desc

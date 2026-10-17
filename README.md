@@ -2,8 +2,12 @@
 
 Static site for Lenny Winnemuller, hosted on Netlify. Netlify runs `python3 build.py` on every push and publishes `public/`.
 
-- **Market updates:** written in the editor at https://lennywinnemuller.com/admin, saved as Markdown in `content/updates/`.
-- **Page texts:** `pages/*.py`. Shared header, footer, workshop form and structured data: `build.py`.
-- **Styling:** `styles.css`.
+Everything is editable in the editor at https://lennywinnemuller.com/admin:
 
-Local build: `pip install -r requirements.txt && python3 build.py`, then open `public/`.
+- **Market updates:** saved as Markdown in `content/updates/`.
+- **Pages** (homepage, workshop, about, market updates page, program, site settings): saved as JSON in `content/pages/`. Field names must match `admin/config.yml`.
+- **Photos:** uploaded to `static/images/`, served at `/images/`.
+
+Layout, shared header and footer, workshop form and structured data live in `build.py`; the privacy policy in `pages/privacy.py`; styling in `styles.css`.
+
+Local build: `python3 build.py` (no dependencies), then open `public/`.

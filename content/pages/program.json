@@ -1,0 +1,120 @@
+{
+  "eyebrow": "The 12-month program",
+  "title": "Build your own long-term investing system in one year",
+  "intro": "Long-term investing is a skill, not a tip. In twelve months of personal coaching you build your own system, step by step, and learn to run it on your own.",
+  "deliverables_title": "What you'll walk away with",
+  "deliverables": [
+    {
+      "title": "Investment Policy Statement",
+      "text": "Your personal rules and principles, written down and rewritten every quarter as your skill grows."
+    },
+    {
+      "title": "Investment plan",
+      "text": "How you apply those rules: your allocation, your process and how you review it."
+    },
+    {
+      "title": "Crash plan and selling rules",
+      "text": "What you do when markets fall, and when you sell, decided in advance and not in the moment."
+    },
+    {
+      "title": "Decision journal",
+      "text": "A record of every decision you made and why, so you learn from your own choices."
+    }
+  ],
+  "how_title": "How we work",
+  "how": [
+    {
+      "title": "A paper portfolio from week 1",
+      "text": "You practice real decisions from the start, without risking money. It's about the quality of your decisions, not returns."
+    },
+    {
+      "title": "Weekly and monthly assignments",
+      "text": "Every week you do something concrete, so the skill builds steadily."
+    },
+    {
+      "title": "Valuation and thesis defense",
+      "text": "You learn how to value businesses and how to defend your investment theses."
+    },
+    {
+      "title": "1:1 coaching",
+      "text": "Regular personal sessions and quarterly reviews, with support in between."
+    },
+    {
+      "title": "Education, not advice",
+      "text": "I teach you how to make your own decisions. I never tell you what to buy or sell."
+    }
+  ],
+  "year_title": "The year at a glance",
+  "quarters": [
+    {
+      "label": "Months 1–3",
+      "title": "Foundation",
+      "topics": [
+        "Your investor identity",
+        "Why long-term investing works",
+        "The playing field"
+      ]
+    },
+    {
+      "label": "Months 4–6",
+      "title": "Understanding businesses",
+      "topics": [
+        "Recognising a quality business",
+        "Reading an annual report",
+        "Competitive advantage and management"
+      ]
+    },
+    {
+      "label": "Months 7–9",
+      "title": "Valuation and portfolio",
+      "topics": [
+        "Valuation",
+        "Your research process",
+        "Building a portfolio"
+      ]
+    },
+    {
+      "label": "Months 10–12",
+      "title": "Behaviour and independence",
+      "topics": [
+        "Investor psychology",
+        "Crashes, patience and selling",
+        "Your investment plan"
+      ]
+    }
+  ],
+  "year_note": "Every quarter ends with a review, and you rewrite your Investment Policy Statement.",
+  "faq_title": "Frequently asked questions",
+  "faq": [
+    {
+      "question": "Is this investment advice?",
+      "answer": "No. This is education and coaching. I teach you how to build and follow your own investing framework. I never give buy or sell recommendations for specific securities."
+    },
+    {
+      "question": "Who is this program for?",
+      "answer": "For people who are already familiar with the financial markets and want to develop the skill of disciplined long-term investing."
+    },
+    {
+      "question": "How long does the program last?",
+      "answer": "12 months. Real skills take time, so we work together long enough for your system to be tested in real markets."
+    },
+    {
+      "question": "How much does it cost?",
+      "answer": "Pricing and the founding offer are presented at the free workshop on 29 October."
+    },
+    {
+      "question": "Is the coaching online?",
+      "answer": "Yes. All sessions take place online, so you can join from anywhere."
+    },
+    {
+      "question": "How do I get started?",
+      "answer": "Join the free workshop on 29 October. Afterwards you can book a personal intro call."
+    }
+  ],
+  "cta_eyebrow": "Places are limited",
+  "cta_title": "Pricing and the founding offer",
+  "cta_text": "Both are presented at the free workshop on Thursday 29 October.",
+  "cta_button": "Join the free workshop",
+  "seo_title": "12-Month Coaching Program in Long-Term Investing | Lenny Winnemuller",
+  "seo_description": "A 12-month coaching program in which you build your own long-term investing system: an Investment Policy Statement, investment plan, crash plan and decision journal. Education, no investment advice."
+}
