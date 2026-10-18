@@ -143,6 +143,15 @@ def portrait(src):
     return f'<div class="photo"><img class="portrait" src="{e(src)}" alt="Portrait of Lenny Winnemuller" width="400" height="500"></div>'
 
 
+def analytics():
+    """Cloudflare Web Analytics: cookieless visitor stats. Only added once a token is set in Site settings."""
+    token = str(S.get('analytics_token') or '').strip()
+    if not token:
+        return ''
+    beacon = html.escape(json.dumps({"token": token}))
+    return f"<script defer src=\"https://static.cloudflareinsights.com/beacon.min.js\" data-cf-beacon='{beacon}'></script>\n"
+
+
 def page(path, title, desc, body, active=None, graph=None, announce=True, kit=False, og_type='website'):
     head_ld = ''
     if graph:
@@ -168,7 +177,7 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, kit=Fa
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE}{path}">
 <meta property="og:image" content="{e(PHOTO)}">
-{head_ld}</head>
+{head_ld}{analytics()}</head>
 <body>
 {ann}<header class="top">
   <div class="wrap">

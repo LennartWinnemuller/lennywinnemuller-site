@@ -46,6 +46,7 @@ collections:
           - { label: "Banner link text", name: announce_link, widget: string }
           - { label: "Footer line under your name", name: footer_tagline, widget: string }
           - { label: "Email address", name: email, widget: string }
+          - { label: "Cloudflare Web Analytics token (visitor stats)", name: analytics_token, widget: string, required: false, hint: "Paste the token from Cloudflare > Web Analytics. Leave empty to turn visitor stats off." }
           - { label: "Disclaimer (footer, every page)", name: disclaimer, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "Disclaimer under each market update", name: update_disclaimer, widget: text }
           - { label: "Workshop block at the bottom of pages: small line", name: cta_eyebrow, widget: string }

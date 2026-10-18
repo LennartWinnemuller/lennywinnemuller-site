@@ -2,12 +2,13 @@ body = '''
   <section class="pagehead">
     <div class="wrap prose">
   <h1>Privacy Policy</h1>
-  <p class="muted">Last updated: 14 October 2026</p>
+  <p class="muted">Last updated: 18 October 2026</p>
 
   <p>This website is run by Lenny Winnemuller, a trade name of Lennart Winnemuller, based in Amsterdam, the Netherlands. I respect your privacy and only collect what I need.</p>
 
   <h2>What I collect</h2>
   <p>When you sign up for the workshop or the newsletter, I collect your <strong>first name</strong> and <strong>email address</strong>. I don't collect anything else, and this website doesn't use tracking or advertising cookies.</p>
+  <p>To see how many people visit this website and how they find it, I use <strong>Cloudflare Web Analytics</strong>. It doesn't use cookies, doesn't store your IP address and doesn't follow you across websites. It only shows me totals, such as page views, the country visitors come from and the website that linked to mine.</p>
 
   <h2>Why I collect it</h2>
   <p>I use your details to:</p>
@@ -22,8 +23,9 @@ body = '''
   <ul>
     <li><strong>Kit</strong> (kit.com) manages my email list and sends the emails.</li>
     <li><strong>Netlify</strong> (netlify.com) hosts this website and may keep standard technical logs, such as IP addresses, for security.</li>
+    <li><strong>Cloudflare</strong> (cloudflare.com) provides the anonymous visitor statistics described above.</li>
   </ul>
-  <p>Both services may store data outside the EU. They use appropriate safeguards required by the GDPR, such as the European Commission's Standard Contractual Clauses. I never sell or share your data with anyone else.</p>
+  <p>These services may store data outside the EU. They use appropriate safeguards required by the GDPR, such as the European Commission's Standard Contractual Clauses. I never sell or share your data with anyone else.</p>
 
   <h2>How long I keep it</h2>
   <p>I keep your details until you unsubscribe. You can unsubscribe at any time with the link at the bottom of every email.</p>
