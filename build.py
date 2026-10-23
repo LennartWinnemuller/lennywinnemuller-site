@@ -43,6 +43,7 @@ def absolute(url):
 
 
 PHOTO = absolute(C['about'].get('photo') or C['home'].get('photo'))
+SOCIAL = [(name, S.get(key)) for key, name in [('instagram', 'Instagram'), ('x', 'X'), ('linkedin', 'LinkedIn')] if S.get(key)]
 
 PERSON = {
     "@type": "Person", "@id": PERSON_ID, "name": "Lenny Winnemuller", "url": SITE + "/",
@@ -52,6 +53,7 @@ PERSON = {
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Amsterdam"},
     "knowsAbout": ["Long-term investing", "Investor psychology", "Group behavior", "Behavioral finance", "Portfolio management"],
+    "sameAs": [url for _, url in SOCIAL],
 }
 SERVICE = {
     "@type": "Service", "@id": SITE + "/program/#service", "name": "12-Month Coaching Program in Long-Term Investing",
@@ -121,7 +123,7 @@ def workshop_section(h1_style=' style="color:#fff"', extra_class=''):
   </section>'''
 
 
-def cta_band(eyebrow=None, title=None, text=None, button=None):
+def cta_band(eyebrow=None, title=None, text=None, button=None, link='/workshop/'):
     return f'''<section class="dark cta-band">
     <div class="wrap">
       <div>
@@ -129,7 +131,7 @@ def cta_band(eyebrow=None, title=None, text=None, button=None):
         <h2>{e(title or S['cta_title'])}</h2>
         <p>{e(text or S['cta_text'])}</p>
       </div>
-      <a class="btn light" href="/workshop/">{e(button or S['cta_button'])}</a>
+      <a class="btn light" href="{e(link)}">{e(button or S['cta_button'])}</a>
     </div>
   </section>'''
 
@@ -137,6 +139,23 @@ def cta_band(eyebrow=None, title=None, text=None, button=None):
 def cards(items, cls='grid', tag=None):
     t = f'<span class="tag">{e(tag)}</span>' if tag else ''
     return f'<div class="{cls}">' + ''.join(f'<div class="card">{t}<h3>{e(c["title"])}</h3><p>{e(c["text"])}</p></div>' for c in items) + '</div>'
+
+
+ICONS = {
+    'Instagram': '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+    'X': '<path d="M4 4l16 16M20 4L4 20"/>',
+    'LinkedIn': '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/>',
+}
+
+
+def social_links():
+    links = ''.join(f'<a href="{e(url)}" rel="me noopener" target="_blank" aria-label="{name}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg><span>{name}</span></a>' for name, url in SOCIAL)
+    return f'<div class="social">{links}</div>' if links else ''
+
+
+def figure(src, caption, cls='figure'):
+    cap = f'<figcaption>{e(caption)}</figcaption>' if caption else ''
+    return f'<figure class="{cls}"><img src="{e(src)}" alt="{e(caption or "Lenny Winnemuller")}" loading="lazy">{cap}</figure>'
 
 
 def portrait(src):
@@ -184,7 +203,7 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, kit=Fa
 <footer>
   <div class="wrap">
     <div class="cols">
-      <div><strong style="color:var(--ink);font-family:var(--serif);font-size:1.1rem;font-weight:400">Lenny Winnemuller</strong><br>{e(S['footer_tagline'])}<br><a href="mailto:{e(S['email'])}">{e(S['email'])}</a></div>
+      <div><strong style="color:var(--ink);font-family:var(--serif);font-size:1.1rem;font-weight:400">Lenny Winnemuller</strong><br>{e(S['footer_tagline'])}<br><a href="mailto:{e(S['email'])}">{e(S['email'])}</a>{social_links()}</div>
       <nav class="fnav" aria-label="Footer">{fnav}</nav>
     </div>
     <div class="disclaimer">{md(S['disclaimer'])}</div>
@@ -262,7 +281,7 @@ def build_home():
       <p class="eyebrow">{e(h['program_eyebrow'])}</p>
       <h2>{e(h['program_title'])}</h2>
       <p class="lead">{e(h['program_intro'])}</p>
-      {cards(h['program_cards'], 'grid four', h['program_tag'])}
+      {cards(h['program_cards'], 'grid five', h['program_tag'])}
       <div class="btns" style="margin-top:28px"><a class="btn" href="/program/">{e(h['program_button'])}</a></div>
     </div>
   </section>
@@ -278,7 +297,10 @@ def build_workshop():
     <div class="wrap narrow">
       <h2>{e(W['for_title'])}</h2>
       <ul class="checklist">{points}</ul>
+      <h2>{e(W['assignment_title'])}</h2>
+      {md(W['assignment_text'])}
       {md(W['after_text'])}
+      {figure(W['photo'], W.get('photo_caption')) if W.get('photo') else ''}
     </div>
   </section>
 '''
@@ -295,7 +317,15 @@ def build_about():
         <p class="eyebrow">{e(a['eyebrow'])}</p>
         <h1>{e(a['title'])}</h1>
         {md(a['text'])}
+        {social_links()}
       </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>{e(a['photos_title'])}</h2>
+      <div class="gallery">{''.join(figure(f['image'], f.get('caption')) for f in a.get('photos', []))}</div>
     </div>
   </section>
 
@@ -335,7 +365,11 @@ def build_updates():
 
 def build_program():
     p = C['program']
-    quarters = ''.join(f'<div class="quarter"><span class="q">{e(q["label"])}</span><h3>{e(q["title"])}</h3><ul>' + ''.join(f'<li>{e(t)}</li>' for t in q['topics']) + '</ul></div>' for q in p['quarters'])
+    highlights = ''.join(f'<li>{e(t)}</li>' for t in p['highlights'])
+    for_points = ''.join(f'<li>{e(t)}</li>' for t in p['for_points'])
+    notfor_points = ''.join(f'<li>{e(t)}</li>' for t in p['notfor_points'])
+    quarters = ''.join(f'<div class="quarter"><span class="q">{e(q["label"])}</span><h3>{e(q["title"])}</h3><p>{e(q["text"])}</p></div>' for q in p['quarters'])
+    modules = ''.join(f'<tr{" class=review" if not m["title"][:1].isdigit() else ""}><td>{e(m["weeks"])}</td><th scope="row">{e(m["title"])}</th><td>{e(m["defense"])}</td><td>{e(m["portfolio"])}</td></tr>' for m in p['modules'])
     faq_html = ''.join(f'<details><summary>{e(f["question"])}</summary>{md(f["answer"])}</details>\n      ' for f in p['faq'])
     faq_ld = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f['question'], "acceptedAnswer": {"@type": "Answer", "text": f['answer']}} for f in p['faq']]}
     body = f'''
@@ -344,13 +378,55 @@ def build_program():
       <p class="eyebrow">{e(p['eyebrow'])}</p>
       <h1>{e(p['title'])}</h1>
       <p class="lead">{e(p['intro'])}</p>
+      <ul class="highlights">{highlights}</ul>
+      <div class="btns" style="margin-top:24px"><a class="btn" href="{e(p['cta_link'])}">{e(p['cta_button'])}</a></div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap grid two text-cols">
+      <div>
+        <h2>{e(p['why_title'])}</h2>
+        {md(p['why_text'])}
+      </div>
+      <div>
+        <h2>{e(p['learn_title'])}</h2>
+        {md(p['learn_text'])}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid two fit">
+      <div class="card">
+        <h3>{e(p['for_title'])}</h3>
+        <ul class="checklist yes">{for_points}</ul>
+      </div>
+      <div class="card">
+        <h3>{e(p['notfor_title'])}</h3>
+        <ul class="checklist no">{notfor_points}</ul>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:48px">
+      <h2>{e(p['req_title'])}</h2>
+      {cards(p['requirements'], 'grid four')}
     </div>
   </section>
 
   <section class="band">
     <div class="wrap">
-      <h2>{e(p['deliverables_title'])}</h2>
-      {cards(p['deliverables'], 'grid four')}
+      <h2>{e(p['year_title'])}</h2>
+      <p class="lead">{e(p['year_intro'])}</p>
+      <div class="quarters">{quarters}</div>
+      <details class="modules">
+        <summary>{e(p['modules_button'])}</summary>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th scope="col">Weeks</th><th scope="col">Module</th><th scope="col">Thesis defense or review</th><th scope="col">Paper portfolio</th></tr></thead>
+            <tbody>{modules}</tbody>
+          </table>
+        </div>
+      </details>
     </div>
   </section>
 
@@ -363,9 +439,28 @@ def build_program():
 
   <section class="band">
     <div class="wrap">
-      <h2>{e(p['year_title'])}</h2>
-      <div class="quarters">{quarters}</div>
-      <p class="muted" style="margin-top:20px">{e(p['year_note'])}</p>
+      <h2>{e(p['deliverables_title'])}</h2>
+      <p class="lead">{e(p['deliverables_intro'])}</p>
+      {cards(p['deliverables'], 'grid five')}
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap narrow">
+      <h2>{e(p['assessed_title'])}</h2>
+      {md(p['assessed_text'])}
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap split">
+      {portrait(p['coach_photo'])}
+      <div>
+        <p class="eyebrow">{e(p['coach_eyebrow'])}</p>
+        <h2>{e(p['coach_title'])}</h2>
+        {md(p['coach_text'])}
+        <a class="btn ghost" href="/about/">{e(p['coach_button'])}</a>
+      </div>
     </div>
   </section>
 
@@ -376,7 +471,7 @@ def build_program():
     </div>
   </section>
 
-  {cta_band(p['cta_eyebrow'], p['cta_title'], p['cta_text'], p['cta_button'])}
+  {cta_band(p['cta_eyebrow'], p['cta_title'], p['cta_text'], p['cta_button'], p['cta_link'])}
 '''
     page('/program/', p['seo_title'], p['seo_description'], body, active='/program/', graph=[SERVICE, faq_ld, PERSON])
 

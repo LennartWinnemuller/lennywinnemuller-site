@@ -46,6 +46,9 @@ collections:
           - { label: "Banner link text", name: announce_link, widget: string }
           - { label: "Footer line under your name", name: footer_tagline, widget: string }
           - { label: "Email address", name: email, widget: string }
+          - { label: "Instagram link", name: instagram, widget: string, required: false }
+          - { label: "X (Twitter) link", name: x, widget: string, required: false }
+          - { label: "LinkedIn link", name: linkedin, widget: string, required: false }
           - { label: "Disclaimer (footer, every page)", name: disclaimer, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "Disclaimer under each market update", name: update_disclaimer, widget: text }
           - { label: "Workshop block at the bottom of pages: small line", name: cta_eyebrow, widget: string }
@@ -98,6 +101,10 @@ collections:
           - { label: "Sign-up form: small print", name: form_fineprint, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "Who it's for: title", name: for_title, widget: string }
           - { label: "Who it's for: points", name: for_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Assignment: title", name: assignment_title, widget: string }
+          - { label: "Assignment: text", name: assignment_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Photo", name: photo, widget: image, choose_url: true, required: false }
+          - { label: "Photo caption", name: photo_caption, widget: string, required: false }
           - { label: "After you sign up: text", name: after_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "Start (for Google)", name: event_start, widget: string, hint: "Format: 2026-10-29T19:30:00+01:00" }
           - { label: "End (for Google)", name: event_end, widget: string, hint: "Format: 2026-10-29T20:30:00+01:00" }
@@ -114,6 +121,14 @@ collections:
           - { label: Text, name: text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
           - { label: "Second section: title", name: section_title, widget: string }
           - { label: "Second section: text", name: section_text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - { label: "Photos: title", name: photos_title, widget: string }
+          - label: Photos
+            name: photos
+            widget: list
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: Photo, name: image, widget: image, choose_url: true }
+              - { label: Caption, name: caption, widget: string, required: false }
           - *seo_title
           - *seo_desc
 
@@ -134,32 +149,68 @@ collections:
           - { label: "Small line above the title", name: eyebrow, widget: string }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: text }
-          - { label: "Deliverables: title", name: deliverables_title, widget: string }
-          - label: Deliverables
-            name: deliverables
+          - { label: "Key points under the intro", name: highlights, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Why this program: title", name: why_title, widget: string }
+          - { label: "Why this program: text", name: why_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "What you will learn: title", name: learn_title, widget: string }
+          - { label: "What you will learn: text", name: learn_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "For you: title", name: for_title, widget: string }
+          - { label: "For you: points", name: for_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Not for you: title", name: notfor_title, widget: string }
+          - { label: "Not for you: points", name: notfor_points, widget: list, field: { label: Point, name: point, widget: string } }
+          - { label: "Entry requirements: title", name: req_title, widget: string }
+          - label: "Entry requirements"
+            name: requirements
             widget: list
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Text, name: text, widget: text }
-          - { label: "How we work: title", name: how_title, widget: string }
-          - label: "How we work"
+          - { label: "Phases: title", name: year_title, widget: string }
+          - { label: "Phases: intro", name: year_intro, widget: text }
+          - label: Phases
+            name: quarters
+            widget: list
+            summary: "{{fields.label}}: {{fields.title}}"
+            fields:
+              - { label: "Label (e.g. Months 2–5)", name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+          - { label: "Week-by-week table: button", name: modules_button, widget: string }
+          - label: "Week-by-week table"
+            name: modules
+            widget: list
+            summary: "{{fields.weeks}}: {{fields.title}}"
+            hint: "Start the module title with its number (e.g. 1. ...). Rows without a number, such as reviews, are shown in grey."
+            fields:
+              - { label: Weeks, name: weeks, widget: string }
+              - { label: Module, name: title, widget: string }
+              - { label: "Thesis defense or review", name: defense, widget: string }
+              - { label: "Paper portfolio", name: portfolio, widget: string, required: false }
+          - { label: "How the program works: title", name: how_title, widget: string }
+          - label: "How the program works"
             name: how
             widget: list
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Text, name: text, widget: text }
-          - { label: "Year overview: title", name: year_title, widget: string }
-          - label: Quarters
-            name: quarters
+          - { label: "What you finish with: title", name: deliverables_title, widget: string }
+          - { label: "What you finish with: intro", name: deliverables_intro, widget: text }
+          - label: "What you finish with"
+            name: deliverables
             widget: list
-            summary: "{{fields.label}}: {{fields.title}}"
+            summary: "{{fields.title}}"
             fields:
-              - { label: "Label (e.g. Months 1–3)", name: label, widget: string }
               - { label: Title, name: title, widget: string }
-              - { label: Topics, name: topics, widget: list, field: { label: Topic, name: topic, widget: string } }
-          - { label: "Year overview: note underneath", name: year_note, widget: text }
+              - { label: Text, name: text, widget: text }
+          - { label: "Assessment: title", name: assessed_title, widget: string }
+          - { label: "Assessment: text", name: assessed_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Your coach: small line", name: coach_eyebrow, widget: string }
+          - { label: "Your coach: title", name: coach_title, widget: string }
+          - { label: "Your coach: photo", name: coach_photo, widget: image, choose_url: true }
+          - { label: "Your coach: text", name: coach_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
+          - { label: "Your coach: button", name: coach_button, widget: string }
           - { label: "FAQ: title", name: faq_title, widget: string }
           - label: "FAQ"
             name: faq
@@ -171,6 +222,7 @@ collections:
           - { label: "Bottom block: small line", name: cta_eyebrow, widget: string }
           - { label: "Bottom block: title", name: cta_title, widget: string }
           - { label: "Bottom block: text", name: cta_text, widget: text }
-          - { label: "Bottom block: button", name: cta_button, widget: string }
+          - { label: "Intro call button text (top and bottom)", name: cta_button, widget: string }
+          - { label: "Intro call button link", name: cta_link, widget: string, hint: "Your booking link, e.g. Calendly." }
           - *seo_title
           - *seo_desc
