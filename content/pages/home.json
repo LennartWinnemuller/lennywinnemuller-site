@@ -6,31 +6,35 @@
   "program_cards": [
     {
       "title": "Investment Policy Statement",
-      "text": "Your rules and principles, rewritten every quarter."
+      "text": "Your personal rulebook, rewritten every quarter."
     },
     {
-      "title": "Investment plan",
-      "text": "How you apply those rules, and how you review them."
+      "title": "Investment Plan",
+      "text": "Your long-term plan, crash playbook and sell rules."
     },
     {
-      "title": "Crash plan and selling rules",
-      "text": "Decided in advance, not in the moment."
+      "title": "Spreadsheet Toolkit",
+      "text": "Dashboard, DCF model and portfolio simulators."
     },
     {
-      "title": "Decision journal",
-      "text": "Every decision you made and why."
+      "title": "Investment Memos",
+      "text": "The written arguments behind your key decisions."
+    },
+    {
+      "title": "A Year of Real Practice",
+      "text": "Twelve months of documented decisions."
     }
   ],
   "program_button": "See the full program",
-  "program_eyebrow": "The 12-month program",
-  "program_intro": "Twelve months of personal coaching in which you build your own system, step by step, and learn to run it on your own.",
-  "photo": "https://embed.filekitcdn.com/e/omtcB3AA6xNUtQV1kJDToV/cdtD5ksXrdiA5LwdMvjuKv",
+  "program_eyebrow": "The 12-month 1:1 coaching program",
+  "program_intro": "A year of weekly 1:1 coaching. You develop and defend your own investment theses, and run a $100,000 paper portfolio from week one.",
+  "photo": "/images/lenny-winnemuller.jpg",
   "updates_eyebrow": "Market updates",
   "seo_title": "Lenny Winnemuller | Teaching the skill of Long-Term Investing",
   "about_eyebrow": "About me",
   "updates_intro": "Weekly updates on what moved the markets and what it means for long-term investors",
-  "seo_description": "Open online workshop on 29 October 2026: Why Great Investors Study More and Trade Less. Lenny Winnemuller teaches long-term investing as a skill. Education and coaching, no investment advice.",
-  "program_title": "Build your own long-term investing system in one year",
-  "about_text": "My name is Lenny Winnemuller, based in Amsterdam, the Netherlands. I graduated with honors in psychology at the University of Amsterdam (specializing in group behavior), and also hold a degree in entrepreneurship. I've worked as a professional in the financial markets in the Netherlands and Canada. Today I invest independently besides teaching long-term investing in the Canadian trader education program Peak Capital Trading.",
+  "seo_description": "Lenny Winnemuller teaches the skill of long-term investing through a 12-month 1:1 coaching program and free workshops. Education and coaching, no investment advice.",
+  "program_title": "The Skill of Long-Term Investing",
+  "about_text": "I'm Lenny Winnemuller, based in Amsterdam. I started my career as a professional trader at an Amsterdam-based proprietary trading firm and later earned a seat at Peak Capital Trading. Today I invest independently for the long term and teach long-term investing in a Canadian trader education program. I graduated with honours in Psychology from the University of Amsterdam, specialising in emotion, performance and group behaviour.",
   "program_tag": "You walk away with"
 }

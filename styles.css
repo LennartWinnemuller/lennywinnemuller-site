@@ -166,3 +166,33 @@ footer .disclaimer { max-width: 780px; }
 .grid.four { grid-template-columns: repeat(4, 1fr); }
 @media (max-width: 900px) { .grid.four { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 600px) { .grid.four { grid-template-columns: 1fr; } }
+.grid.five { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.grid.fit { margin-top: 0; }
+.text-cols { margin-top: 0; gap: 48px; }
+.highlights { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; }
+.highlights li { padding-left: 22px; position: relative; }
+.highlights li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+.checklist.yes li::before { content: "✓"; color: #2f7a4f; }
+.checklist.no li::before { content: "✕"; color: #a5300f; }
+.card .checklist { margin: 0; }
+.card .checklist li:last-child { border-bottom: 0; }
+.quarter p { margin: 0; color: var(--muted); font-size: .95rem; }
+.modules { margin-top: 28px; }
+.modules summary { cursor: pointer; font-weight: 600; color: var(--accent); }
+.table-scroll { overflow-x: auto; margin-top: 16px; }
+.modules table { width: 100%; min-width: 640px; border-collapse: collapse; font-size: .93rem; background: var(--bg); }
+.modules th, .modules td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+.modules thead th { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
+.modules tbody th { font-family: var(--serif); font-weight: 400; color: var(--ink); }
+.modules tr.review td, .modules tr.review th { color: var(--muted); font-style: italic; }
+.social { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 14px; }
+.social a { display: inline-flex; align-items: center; gap: 6px; color: var(--ink); text-decoration: none; }
+.social a:hover { color: var(--accent); }
+.gallery { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 16px; margin-top: 24px; }
+.figure { margin: 0; }
+.figure img { width: 100%; object-fit: cover; border-radius: 12px; }
+.gallery .figure img { height: 340px; }
+.narrow .figure img { max-height: 460px; }
+.figure figcaption { font-size: .85rem; color: var(--muted); margin-top: 8px; }
+.narrow .figure { margin-top: 32px; }
+@media (max-width: 820px) { .gallery { grid-template-columns: 1fr 1fr; } .gallery .figure:first-child { grid-column: 1 / -1; } }

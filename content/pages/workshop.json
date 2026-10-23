@@ -1,12 +1,12 @@
 {
   "for_title": "Who this workshop is for",
-  "date_line": "Thursday 29 October 2026 ",
+  "date_line": "Thursday 29 October 2026",
   "eyebrow": "Free online workshop · Thursday 29 October",
   "form_button": "Reserve my free spot",
   "after_text": "After you sign up, you get an email to confirm your spot. The link to join arrives in that email.\n\nHosted by [Lenny Winnemuller](/about/). Education, no investment advice.",
   "learn_intro": "In this workshop you'll learn:",
-  "details_line": "2:30 PM EST US Market time · Online · Open · About 60 minutes",
-  "form_subtitle": "Thursday 29 October · 2:30PM EST US Market time · Online",
+  "details_line": "2:30 PM ET (New York) · 7:30 PM Amsterdam · Online · About 60 minutes",
+  "form_subtitle": "Thursday 29 October · 2:30 PM ET (US market time) · Online",
   "event_end": "2026-10-29T20:30:00+01:00",
   "seo_title": "Open Workshop: Why Great Investors Study More and Trade Less | Lenny Winnemuller",
   "subtitle": "The 20-Decision Rule",
@@ -17,12 +17,17 @@
     "You set rules for yourself, and then you break them when the market starts moving",
     "You've collected strategies, opinions and tips, but none of it adds up to a consistent skill set"
   ],
-  "seo_description": "Open online workshop on Thursday 29 October 2026, 2:30 PM EST US Market time: the 20-Decision Rule - Why Great Investors Study More and Trade Less",
+  "seo_description": "Open online workshop on Thursday 29 October 2026, 2:30 PM ET (US market time): the 20-Decision Rule. Why Great Investors Study More and Trade Less.",
   "event_start": "2026-10-29T19:30:00+01:00",
   "form_title": "Reserve your free spot",
   "learn_points": [
-    "What the 20-decision rule is - why fewer, better decisions beat constant activity",
-    "How great long-term investors spend their time studying",
-    "How you start develop your own long-term investment skills"
-  ]
+    "The 20-Decision Rule: what changes when you only get 20 investment decisions in a lifetime",
+    "Why great long-term investors study more and trade less, and what the behaviour gap costs investors",
+    "What traders already do well (a journal, rules, risk per position) and how to carry it into investing for years",
+    "The difference between a decision and an outcome"
+  ],
+  "assignment_title": "Your assignment and a free feedback call",
+  "assignment_text": "You leave with a short assignment (30–45 minutes): your own punch card, with your goal and time horizon, five rules every decision must pass, and a study list of three companies or funds you want to learn more about. A study list, not a buy list.\n\nEveryone who submits it can book a free 20-minute call in which I give feedback on your goals and rules.",
+  "photo": "/images/live-class.jpg",
+  "photo_caption": "A full room at a live class"
 }

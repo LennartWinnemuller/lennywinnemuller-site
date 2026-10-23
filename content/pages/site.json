@@ -1,12 +1,15 @@
 {
   "cta_button": "Reserve your free spot",
-  "announce_text": "Open online workshop · Thursday 29 October 2:30PM (EST, US market time)",
+  "announce_text": "Open online workshop · Thursday 29 October, 2:30 PM ET (US market time)",
   "cta_title": "Why Great Investors Study More and Trade Less",
   "footer_tagline": "The Skill of Long-term Investing In The US Stock Market",
   "announce_link": "Reserve your spot",
   "update_disclaimer": "This update is for education only. It is not investment advice or a recommendation to buy, sell or hold any security. Companies are mentioned to illustrate how to think about news, not as opportunities.",
   "cta_eyebrow": "Open online workshop · Thursday 29 October",
-  "disclaimer": "**Disclaimer:** Lenny Winnemuller provides education and coaching only. Nothing on this website or in the program is investment advice or a recommendation to buy or sell any security. Investing involves risk, including the possible loss of capital. Past results do not guarantee future returns.",
+  "disclaimer": "**Disclaimer:** Lenny Winnemuller provides education and coaching only. Nothing on this website, in the program, its materials or its sessions is investment, financial, tax or legal advice, or a recommendation to buy, sell or hold any security. All program exercises take place in a paper portfolio, and every investment decision you make with real money is your own responsibility. Investing involves risk, including the possible loss of capital. Past results do not guarantee future returns.",
   "cta_text": "The 20-Decision Rule",
-  "email": "info@lennywinnemuller.com"
+  "email": "info@lennywinnemuller.com",
+  "instagram": "https://www.instagram.com/lennartwinnemuller/",
+  "x": "https://x.com/TradingwLenny",
+  "linkedin": "https://www.linkedin.com/in/lennartwinnemuller"
 }
