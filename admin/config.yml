@@ -223,6 +223,6 @@ collections:
           - { label: "Bottom block: title", name: cta_title, widget: string }
           - { label: "Bottom block: text", name: cta_text, widget: text }
           - { label: "Intro call button text (top and bottom)", name: cta_button, widget: string }
-          - { label: "Intro call button link", name: cta_link, widget: string, hint: "Paste your booking link here (e.g. Calendly). Now it opens an email to you." }
+          - { label: "Intro call button link", name: cta_link, widget: string, hint: "Your booking link, e.g. Calendly." }
           - *seo_title
           - *seo_desc
