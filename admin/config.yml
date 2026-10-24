@@ -29,6 +29,7 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Short URL (optional, e.g. france-bond-yields)", name: url, widget: string, required: false, hint: "The web address becomes lennywinnemuller.com/updates/<this>/. Leave empty to use the long default. Changing it later keeps the old address working." }
       - { label: "Short summary (shown in the list and in Google)", name: description, widget: text }
       - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [image] }
 
