@@ -56,6 +56,6 @@ So why does he propose something impossible:
 
 Zoom out, and we see the same menu from candidates:
 
-Immediate, visible benefits for your voters and costs pushed onto an entity your voters don't identify with,
+Immediate, visible benefits for your voters and costs pushed onto an entity your voters don't identify with
 
 And those rising yields reprice everything, the cost of lost trust never stays with the bondholders.
