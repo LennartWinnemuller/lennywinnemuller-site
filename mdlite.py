@@ -47,8 +47,9 @@ def markdown(text):
             out.append('<p>' + _inline(' '.join(para)) + '</p>')
             para = []
         if lst:
-            tag, items = lst
-            out.append(f'<{tag}>' + ''.join(f'<li>{_inline(x)}</li>' for x in items) + f'</{tag}>')
+            tag, items, start = lst
+            attr = f' start="{start}"' if tag == 'ol' and start != 1 else ''
+            out.append(f'<{tag}{attr}>' + ''.join(f'<li>{_inline(x)}</li>' for x in items) + f'</{tag}>')
             lst = None
         if quote:
             out.append('<blockquote><p>' + _inline(' '.join(quote)) + '</p></blockquote>')
@@ -58,11 +59,13 @@ def markdown(text):
         line = raw.rstrip()
         s = line.strip()
         if not s:
-            flush()
+            # A blank line between list items keeps the list going (Decap writes loose lists).
+            if not lst:
+                flush()
             continue
         h = re.match(r'^(#{1,6})\s+(.*)$', s)
         ul = re.match(r'^[-*+]\s+(.*)$', s)
-        ol = re.match(r'^\d+[.)]\s+(.*)$', s)
+        ol = re.match(r'^(\d+)[.)]\s+(.*)$', s)
         if h:
             flush()
             n = len(h.group(1))
@@ -72,8 +75,8 @@ def markdown(text):
             if para or quote or (lst and lst[0] != tag):
                 flush()
             if not lst:
-                lst = (tag, [])
-            lst[1].append((ul or ol).group(1))
+                lst = (tag, [], int(ol.group(1)) if ol else 1)
+            lst[1].append(ul.group(1) if ul else ol.group(2))
         elif s.startswith('>'):
             if para or lst:
                 flush()

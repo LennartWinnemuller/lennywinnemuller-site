@@ -38,7 +38,7 @@ In other words don’t pay interest on it anymore. Subsequently use the freed-up
 
 Well, if that would happen:
 
-1.Markets would only lend to France at exorbitant rates (as they just decide not to pay interest anymore on their existing debt) meaning France can’t close its budget deficit. 
+1. Markets would only lend to France at exorbitant rates (as they just decide not to pay interest anymore on their existing debt) meaning France can’t close its budget deficit. 
 
 2. The French financial sector will have a huge problem as they use French bonds as collateral for their day-to-day funding, so the freeze hits their solvency. French government would need to rescue their banks, but the government won’t have any money to finance that.
 
