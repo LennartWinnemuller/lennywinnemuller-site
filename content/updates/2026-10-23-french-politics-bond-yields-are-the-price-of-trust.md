@@ -28,20 +28,18 @@ Very contradictory, how do you drastically cut the budget while lowering taxes?
 
 Their proposed answer is:  less EU spending, less spending on immigrants, cracking down on fraud.
 
-The political strategy is : the bond market read the austerity, so it does not keeps demanding a higher rate (making the debt more expensive), and the voters read tax cuts and lower retirement age. 
+The political strategy is: the bond market read the austerity, so it does not keeps demanding a higher rate (making the debt more expensive), and the voters read tax cuts and lower retirement age. 
 
 Bond market is not buying it though, and keep demanding a higher yield (remember the 24 year high).
 
-Mélenchon says he is  going to freeze certain parts of the debt.
+Mélenchon says he is going to freeze certain parts of the debt.
 
 In other words don’t pay interest on it anymore. Subsequently use the freed-up capacity for public spending/investment.
 
 Well, if that would happen:
 
 1. Markets would only lend to France at exorbitant rates (as they just decide not to pay interest anymore on their existing debt) meaning France can’t close its budget deficit. 
-
 2. The French financial sector will have a huge problem as they use French bonds as collateral for their day-to-day funding, so the freeze hits their solvency. French government would need to rescue their banks, but the government won’t have any money to finance that.
-
 3. There would be spillover effects as markets would fear other countries could do the same. 
 
 So why does he propose something impossible:
