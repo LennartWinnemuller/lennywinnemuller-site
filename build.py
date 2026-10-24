@@ -4,7 +4,7 @@
 Page texts live in content/pages/*.json and updates in content/updates/*.md; both are edited at /admin.
 The layout, structured data for search engines and the Kit form are defined here.
 """
-import datetime, glob, html, json, os, shutil
+import datetime, glob, html, json, os, re, shutil
 from mdlite import parse_front_matter, markdown
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -226,6 +226,9 @@ def load_posts():
         m, body = parse_front_matter(open(f, encoding='utf-8').read())
         d = datetime.date.fromisoformat(str(m['date'])[:10])
         year, week, _ = d.isocalendar()
+        slug = os.path.basename(f)[:-3]
+        # Optional short URL set in the editor; the file name stays the same.
+        url = re.sub(r'[^a-z0-9]+', '-', str(m.get('url') or '').lower()).strip('-')
         posts.append({
             'date': d.isoformat(),
             'date_label': d.strftime('%A ') + str(d.day) + d.strftime(' %B %Y'),
@@ -233,8 +236,9 @@ def load_posts():
             'title': str(m['title']).strip(),
             'description': str(m.get('description', '')).strip(),
             'body': markdown(body),
-            'slug': os.path.basename(f)[:-3],
-            'path': f"/updates/{os.path.basename(f)[:-3]}/",
+            'slug': slug,
+            'path': f"/updates/{url or slug}/",
+            'old_path': f"/updates/{slug}/" if url and url != slug else None,
         })
     posts.sort(key=lambda p: (p['date'], p['slug']), reverse=True)
     return posts
@@ -543,6 +547,10 @@ def main():
     os.makedirs(OUT)
     for f in ['styles.css', 'favicon.svg', 'robots.txt', 'llms.txt', '_redirects']:
         shutil.copy(os.path.join(HERE, f), OUT)
+    with open(os.path.join(OUT, '_redirects'), 'a', encoding='utf-8') as r:
+        for p in POSTS:
+            if p['old_path']:
+                r.write(f"\n{p['old_path']}  {p['path']}  301")
     shutil.copytree(os.path.join(HERE, 'admin'), os.path.join(OUT, 'admin'))
     shutil.copytree(os.path.join(HERE, 'static'), OUT, dirs_exist_ok=True)
     build_home(); build_workshop(); build_about(); build_updates(); build_program(); build_privacy(); build_404()

@@ -1,5 +1,6 @@
 ---
 title: French politics (bond yields are the price of trust)
+url: france-bond-yields
 date: 2026-10-24
 description: France is borrowing at its highest rate in 24 years, and both
   leading election camps promise more than the numbers allow. Here’s what the
