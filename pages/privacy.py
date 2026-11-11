@@ -4,7 +4,7 @@ body = '''
   <h1>Privacy Policy</h1>
   <p class="muted">Last updated: 14 October 2026</p>
 
-  <p>This website is run by Lenny Winnemuller, a trade name of Lennart Winnemuller, based in Amsterdam, the Netherlands. I respect your privacy and only collect what I need.</p>
+  <p>This website is run by Lenny Winnemuller, based in Amsterdam, the Netherlands. I respect your privacy and only collect what I need.</p>
 
   <h2>What I collect</h2>
   <p>When you sign up for the workshop or the newsletter, I collect your <strong>first name</strong> and <strong>email address</strong>. I don't collect anything else, and this website doesn't use tracking or advertising cookies.</p>
