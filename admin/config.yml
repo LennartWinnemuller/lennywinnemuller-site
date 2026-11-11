@@ -43,8 +43,9 @@ collections:
         label: "Site settings (menu banner, footer, disclaimer)"
         file: content/pages/site.json
         fields:
-          - { label: "Banner text at the top of every page", name: announce_text, widget: string }
-          - { label: "Banner link text", name: announce_link, widget: string }
+          - { label: "Banner text at the top of every page", name: announce_text, widget: string, required: false, hint: "Leave empty to hide the banner." }
+          - { label: "Banner link text", name: announce_link, widget: string, required: false }
+          - { label: "Banner link (web address)", name: announce_url, widget: string, required: false, hint: "Leave empty to link to your intro call." }
           - { label: "Footer line under your name", name: footer_tagline, widget: string }
           - { label: "Email address", name: email, widget: string }
           - { label: "Instagram link", name: instagram, widget: string, required: false }
@@ -52,15 +53,21 @@ collections:
           - { label: "LinkedIn link", name: linkedin, widget: string, required: false }
           - { label: "Disclaimer (footer, every page)", name: disclaimer, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "Disclaimer under each market update", name: update_disclaimer, widget: text }
-          - { label: "Workshop block at the bottom of pages: small line", name: cta_eyebrow, widget: string }
-          - { label: "Workshop block: title", name: cta_title, widget: string }
-          - { label: "Workshop block: text", name: cta_text, widget: text }
-          - { label: "Workshop block: button", name: cta_button, widget: string }
+          - { label: "Block at the bottom of pages: small line", name: cta_eyebrow, widget: string }
+          - { label: "Bottom block: title", name: cta_title, widget: string }
+          - { label: "Bottom block: text", name: cta_text, widget: text }
+          - { label: "Bottom block: button", name: cta_button, widget: string }
+          - { label: "Bottom block: button link (also used for the intro call buttons)", name: cta_link, widget: string }
 
       - name: home
         label: "Homepage"
         file: content/pages/home.json
         fields:
+          - { label: "Top of the page: small line", name: hero_eyebrow, widget: string }
+          - { label: "Top of the page: title", name: hero_title, widget: string }
+          - { label: "Top of the page: text", name: hero_text, widget: text }
+          - { label: "Top of the page: program button", name: hero_button, widget: string }
+          - { label: "Top of the page: intro call button", name: hero_button_call, widget: string }
           - { label: "About me: small line", name: about_eyebrow, widget: string }
           - { label: "About me: title", name: about_title, widget: string }
           - { label: "About me: text", name: about_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
@@ -84,33 +91,6 @@ collections:
           - { label: "Program: button", name: program_button, widget: string }
           - &seo_title { label: "Google title", name: seo_title, widget: string, hint: "Shown as the blue link in Google. Keep it under about 60 characters." }
           - &seo_desc { label: "Google description", name: seo_description, widget: text, hint: "Shown under the link in Google. Keep it under about 155 characters." }
-
-      - name: workshop
-        label: "Free workshop"
-        file: content/pages/workshop.json
-        fields:
-          - { label: "Small line above the title", name: eyebrow, widget: string }
-          - { label: Title, name: title, widget: string }
-          - { label: Subtitle, name: subtitle, widget: string }
-          - { label: "Date line", name: date_line, widget: string }
-          - { label: "Details line (time zones, duration)", name: details_line, widget: string }
-          - { label: "Intro above the list", name: learn_intro, widget: string }
-          - { label: "What you'll learn", name: learn_points, widget: list, field: { label: Point, name: point, widget: string } }
-          - { label: "Sign-up form: title", name: form_title, widget: string }
-          - { label: "Sign-up form: line under the title", name: form_subtitle, widget: string }
-          - { label: "Sign-up form: button", name: form_button, widget: string }
-          - { label: "Sign-up form: small print", name: form_fineprint, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
-          - { label: "Who it's for: title", name: for_title, widget: string }
-          - { label: "Who it's for: points", name: for_points, widget: list, field: { label: Point, name: point, widget: string } }
-          - { label: "Assignment: title", name: assignment_title, widget: string }
-          - { label: "Assignment: text", name: assignment_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
-          - { label: "Photo", name: photo, widget: image, choose_url: true, required: false }
-          - { label: "Photo caption", name: photo_caption, widget: string, required: false }
-          - { label: "After you sign up: text", name: after_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
-          - { label: "Start (for Google)", name: event_start, widget: string, hint: "Format: 2026-10-29T19:30:00+01:00" }
-          - { label: "End (for Google)", name: event_end, widget: string, hint: "Format: 2026-10-29T20:30:00+01:00" }
-          - *seo_title
-          - *seo_desc
 
       - name: about
         label: "About me"

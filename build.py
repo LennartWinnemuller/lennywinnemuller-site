@@ -2,7 +2,7 @@
 """Builds the site into public/. Netlify runs this on every change.
 
 Page texts live in content/pages/*.json and updates in content/updates/*.md; both are edited at /admin.
-The layout, structured data for search engines and the Kit form are defined here.
+The layout and structured data for search engines are defined here.
 """
 import datetime, glob, html, json, os, re, shutil
 from mdlite import parse_front_matter, markdown
@@ -11,14 +11,14 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'public')
 SITE = 'https://lennywinnemuller.com'
 PERSON_ID = SITE + '/#lenny'
-NAV = [('/workshop/', 'Free workshop'), ('/about/', 'About me'), ('/updates/', 'Market updates'), ('/program/', '12-month program')]
+NAV = [('/about/', 'About me'), ('/updates/', 'Market updates'), ('/program/', '12-month program')]
 
 
 def load(name):
     return json.load(open(os.path.join(HERE, 'content', 'pages', name + '.json'), encoding='utf-8'))
 
 
-C = {n: load(n) for n in ['site', 'home', 'workshop', 'about', 'updates', 'program']}
+C = {n: load(n) for n in ['site', 'home', 'about', 'updates', 'program']}
 S = C['site']
 
 
@@ -61,69 +61,7 @@ SERVICE = {
     "description": C['program']['seo_description'],
     "areaServed": "Worldwide",
 }
-W = C['workshop']
-EVENT = {
-    "@type": "Event", "@id": SITE + "/workshop/#event",
-    "name": f"{W['title']}: {W['subtitle']}",
-    "description": W['seo_description'],
-    "startDate": W['event_start'], "endDate": W['event_end'],
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-    "location": {"@type": "VirtualLocation", "url": SITE + "/workshop/"},
-    "image": PHOTO, "organizer": {"@id": PERSON_ID}, "performer": {"@id": PERSON_ID},
-    "isAccessibleForFree": True,
-    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/InStock",
-               "url": SITE + "/workshop/", "validFrom": "2026-10-14"},
-}
-
-
-def kit_form():
-    options = json.dumps({"settings": {"after_subscribe": {"action": "message", "success_message": "You’re in! Check your inbox to confirm your spot.", "redirect_url": ""},
-                                       "recaptcha": {"enabled": False}, "return_visitor": {"action": "show", "custom_content": ""}}, "version": "5"}, ensure_ascii=False)
-    return f'''<div class="signup" id="signup">
-        <h3>{e(W['form_title'])}</h3>
-        <p class="sub">{e(W['form_subtitle'])}</p>
-        <form action="https://app.kit.com/forms/10043918/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="10043918" data-uid="3d027c31fc" data-format="inline" data-version="5" data-options='{html.escape(options, quote=False)}'>
-          <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-          <div data-element="fields" class="seva-fields formkit-fields">
-            <div class="formkit-field">
-              <label for="ck-first-name">First name</label>
-              <input id="ck-first-name" class="formkit-input" name="fields[first_name]" type="text" autocomplete="given-name" required>
-            </div>
-            <div class="formkit-field">
-              <label for="ck-email">Email address</label>
-              <input id="ck-email" class="formkit-input" name="email_address" type="email" autocomplete="email" required>
-            </div>
-            <button data-element="submit" class="formkit-submit btn" type="submit">
-              <div class="formkit-spinner"><div></div><div></div><div></div></div>
-              <span>{e(W['form_button'])}</span>
-            </button>
-          </div>
-        </form>
-        <p class="fine">{md_inline(W['form_fineprint'])}</p>
-      </div>'''
-
-
-def workshop_section(h1_style=' style="color:#fff"', extra_class=''):
-    points = ''.join(f'<li>{e(p)}</li>' for p in W['learn_points'])
-    return f'''
-  <section class="dark workshop{extra_class}" id="workshop">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">{e(W['eyebrow'])}</p>
-        <h1{h1_style}>{e(W['title'])}</h1>
-        <p class="subtitle">{e(W['subtitle'])}</p>
-        <p class="when">{e(W['date_line'])}
-          <small>{e(W['details_line'])}</small></p>
-        <p>{e(W['learn_intro'])}</p>
-        <ul>{points}</ul>
-      </div>
-      {kit_form()}
-    </div>
-  </section>'''
-
-
-def cta_band(eyebrow=None, title=None, text=None, button=None, link='/workshop/'):
+def cta_band(eyebrow=None, title=None, text=None, button=None, link=None):
     return f'''<section class="dark cta-band">
     <div class="wrap">
       <div>
@@ -131,7 +69,7 @@ def cta_band(eyebrow=None, title=None, text=None, button=None, link='/workshop/'
         <h2>{e(title or S['cta_title'])}</h2>
         <p>{e(text or S['cta_text'])}</p>
       </div>
-      <a class="btn light" href="{e(link)}">{e(button or S['cta_button'])}</a>
+      <a class="btn light" href="{e(link or S['cta_link'])}">{e(button or S['cta_button'])}</a>
     </div>
   </section>'''
 
@@ -162,13 +100,17 @@ def portrait(src):
     return f'<div class="photo"><img class="portrait" src="{e(src)}" alt="Portrait of Lenny Winnemuller" width="400" height="500"></div>'
 
 
-def page(path, title, desc, body, active=None, graph=None, announce=True, kit=False, og_type='website'):
+def page(path, title, desc, body, active=None, graph=None, announce=True, og_type='website'):
     head_ld = ''
     if graph:
         head_ld = '<script type="application/ld+json">\n' + json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=2, ensure_ascii=False) + '\n</script>\n'
     current = ' aria-current="page"'
     nav = ''.join(f'<a href="{h}"{current if h == active else ""}>{t}</a>' for h, t in NAV)
-    ann = f'<div class="announce">{e(S["announce_text"])} · <a href="/workshop/">{e(S["announce_link"])}</a></div>\n' if announce else ''
+    # The banner only shows when a banner text is filled in at /admin.
+    ann = ''
+    if announce and str(S.get('announce_text') or '').strip():
+        link = f' · <a href="{e(S.get("announce_url") or S["cta_link"])}">{e(S.get("announce_link"))}</a>' if str(S.get('announce_link') or '').strip() else ''
+        ann = f'<div class="announce">{e(S["announce_text"])}{link}</div>\n'
     fnav = ''.join(f'<a href="{h}">{t}</a>' for h, t in [('/', 'Home')] + NAV + [('/privacy/', 'Privacy policy')])
     title, desc = e(title), e(desc)
     doc = f'''<!doctype html>
@@ -210,7 +152,6 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, kit=Fa
     <p>© {datetime.date.today().year} Lenny Winnemuller</p>
   </div>
 </footer>
-{'<script src="https://f.convertkit.com/ckjs/ck.5.js"></script>' if kit else ''}
 </body>
 </html>
 '''
@@ -256,7 +197,15 @@ def post_list(posts):
 
 def build_home():
     h = C['home']
-    body = workshop_section(extra_class=' hero-workshop') + f'''
+    body = f'''
+  <section class="dark home-hero">
+    <div class="wrap">
+      <p class="eyebrow">{e(h['hero_eyebrow'])}</p>
+      <h1>{e(h['hero_title'])}</h1>
+      <p class="lead">{e(h['hero_text'])}</p>
+      <div class="btns" style="margin-top:24px"><a class="btn light" href="/program/">{e(h['hero_button'])}</a><a class="btn ghost light-ghost" href="{e(S['cta_link'])}">{e(h['hero_button_call'])}</a></div>
+    </div>
+  </section>
 
   <section id="about">
     <div class="wrap split">
@@ -290,25 +239,7 @@ def build_home():
     </div>
   </section>
 '''
-    page('/', h['seo_title'], h['seo_description'], body, graph=[PERSON, EVENT, SERVICE], announce=False, kit=True)
-
-
-def build_workshop():
-    points = ''.join(f'<li>{e(p)}</li>' for p in W['for_points'])
-    body = workshop_section() + f'''
-
-  <section>
-    <div class="wrap narrow">
-      <h2>{e(W['for_title'])}</h2>
-      <ul class="checklist">{points}</ul>
-      <h2>{e(W['assignment_title'])}</h2>
-      {md(W['assignment_text'])}
-      {md(W['after_text'])}
-      {figure(W['photo'], W.get('photo_caption')) if W.get('photo') else ''}
-    </div>
-  </section>
-'''
-    page('/workshop/', W['seo_title'], W['seo_description'], body, active='/workshop/', graph=[EVENT, PERSON], announce=False, kit=True)
+    page('/', h['seo_title'], h['seo_description'], body, graph=[PERSON, SERVICE])
 
 
 def build_about():
@@ -530,7 +461,7 @@ def build_feed():
 
 def build_404():
     page('/404/', 'Page not found | Lenny Winnemuller', 'This page does not exist.',
-         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/workshop/">free workshop</a>.</p></div></section>')
+         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/program/">12-month program</a>.</p></div></section>')
     shutil.move(os.path.join(OUT, '404', 'index.html'), os.path.join(OUT, '404.html'))
     os.rmdir(os.path.join(OUT, '404'))
 
@@ -553,11 +484,11 @@ def main():
                 r.write(f"\n{p['old_path']}  {p['path']}  301")
     shutil.copytree(os.path.join(HERE, 'admin'), os.path.join(OUT, 'admin'))
     shutil.copytree(os.path.join(HERE, 'static'), OUT, dirs_exist_ok=True)
-    build_home(); build_workshop(); build_about(); build_updates(); build_program(); build_privacy(); build_404()
+    build_home(); build_about(); build_updates(); build_program(); build_privacy(); build_404()
     for p in POSTS:
         build_post(p)
     build_feed()
-    paths = ['/', '/workshop/', '/about/', '/updates/', '/program/', '/privacy/'] + [p['path'] for p in POSTS]
+    paths = ['/', '/about/', '/updates/', '/program/', '/privacy/'] + [p['path'] for p in POSTS]
     dates = {p['path']: p['date'] for p in POSTS}
     if POSTS:
         dates['/updates/'] = dates['/'] = POSTS[0]['date']
