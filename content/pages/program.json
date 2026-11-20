@@ -5,7 +5,7 @@
   "highlights": [
     "Weekly one-on-one sessions (60 min)",
     "Weekly assignments and independent study materials",
-    "Thesis defense and exam every two weeks",
+    "Exam and thesis defense every three weeks",
     "Reviews at months 3 and 6 (90 min)"
   ],
   "why_title": "Why this program",
@@ -71,40 +71,28 @@
   "modules_button": "Show the six months, week by week",
   "modules": [
     {
-      "weeks": "1–2",
+      "weeks": "1–3",
       "title": "1. The shareholder's mindset",
       "defense": "Investor profile and your Investment Policy Statement (IPS v1)",
       "portfolio": "You open your paper portfolio with $100,000 in starting capital, set up with index funds and ballast"
     },
     {
-      "weeks": "3–4",
-      "title": "2. Understanding the business completely",
-      "defense": "One-page business model map, the foundation of your circle of competence",
-      "portfolio": "Your benchmark position is in place and every decision is logged"
+      "weeks": "4–6",
+      "title": "2. Understanding the business and its numbers",
+      "defense": "One-page business model map and business case: where did the money go?",
+      "portfolio": "Your benchmark position is in place, the watchlist grows and every decision is logged"
     },
     {
-      "weeks": "5–6",
-      "title": "3. How the business shows up in the numbers",
-      "defense": "Business case: where did the money go?",
-      "portfolio": "The watchlist grows, every decision journaled"
-    },
-    {
-      "weeks": "7–8",
-      "title": "4. Price vs value, relative valuation and margin of safety",
+      "weeks": "7–9",
+      "title": "3. Price vs value, relative valuation and margin of safety",
       "defense": "Valuation modeling: cheap or broken?",
       "portfolio": "First positions open, each with a written one-page thesis"
     },
     {
-      "weeks": "9–10",
-      "title": "5. Judging quality",
-      "defense": "Full annual report analysis and your IPS v2",
+      "weeks": "10–12",
+      "title": "4. Judging quality: the business and its industry",
+      "defense": "Full annual report analysis, industry map and moat verdict, and your IPS v2",
       "portfolio": "Every candidate must earn its place in writing"
-    },
-    {
-      "weeks": "11–12",
-      "title": "6. The industry: competition, moats and market dynamics",
-      "defense": "Industry map and moat verdict",
-      "portfolio": "New positions defended in a thesis defense"
     },
     {
       "weeks": "13",
@@ -113,43 +101,31 @@
       "portfolio": ""
     },
     {
-      "weeks": "14–15",
-      "title": "7. Intrinsic valuation (incl. cost of capital)",
-      "defense": "Discounted cash flow model (DCF), reverse DCF and your IPS v3",
+      "weeks": "14–16",
+      "title": "5. Intrinsic valuation and reading the consensus",
+      "defense": "Discounted cash flow model (DCF), reverse DCF, consensus read and your IPS v3",
       "portfolio": "Every position now carries your own valuation model and a margin of safety"
     },
     {
-      "weeks": "16–17",
-      "title": "8. Reading the consensus",
-      "defense": "Consensus read, defended",
-      "portfolio": ""
-    },
-    {
-      "weeks": "18–19",
-      "title": "9. Management and capital allocation",
+      "weeks": "17–19",
+      "title": "6. Management and capital allocation",
       "defense": "Management scorecard: promises vs. delivered",
       "portfolio": "Position sizing applied"
     },
     {
-      "weeks": "20–21",
-      "title": "10. The thesis",
+      "weeks": "20–22",
+      "title": "7. The thesis",
       "defense": "Five-page investment memo with price, size and margin of safety",
       "portfolio": "Process graded separately from outcome"
     },
     {
-      "weeks": "22–23",
-      "title": "11. Risk, behavior and measurement",
-      "defense": "Emotion map and decision-journal audit",
+      "weeks": "23–25",
+      "title": "8. Risk, behavior and the real deal",
+      "defense": "Emotion map, decision-journal audit and the 20-year plan, defended, with your final IPS",
       "portfolio": "You manage the portfolio. The coach gives feedback, the decisions are yours"
     },
     {
-      "weeks": "24",
-      "title": "12. The real deal",
-      "defense": "The 20-year plan, defended, and your final IPS",
-      "portfolio": ""
-    },
-    {
-      "weeks": "25",
+      "weeks": "26",
       "title": "Capstone and final review",
       "defense": "Final investment plan, final IPS and your plan for continued growth",
       "portfolio": "Independence: six months of documented decisions. The benchmark comparison is shown, but the process record is what counts"
@@ -170,12 +146,12 @@
       "text": "To apply what you learned right away."
     },
     {
-      "title": "Exam every two weeks",
-      "text": "A questionnaire, analysis or case study that closes each topic. If you don't pass, you get detailed 1:1 feedback and a second attempt."
+      "title": "Exam every three weeks",
+      "text": "A questionnaire, analysis or case study that closes each three-week block. If you don't pass, you get detailed 1:1 feedback and a second attempt."
     },
     {
-      "title": "Thesis defense every two weeks",
-      "text": "You defend the assignment of each topic, such as part of your IPS, a valuation model or a portfolio update. You pass when your reasoning holds up under scrutiny. If not, you get feedback and a second attempt."
+      "title": "Thesis defense every three weeks",
+      "text": "You defend the assignment of each block, such as part of your IPS, a valuation model or a portfolio update. You pass when your reasoning holds up under scrutiny. If not, you get feedback and a second attempt."
     },
     {
       "title": "Review at months 3 and 6 (90 min)",
