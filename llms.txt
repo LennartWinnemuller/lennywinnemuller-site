@@ -1,6 +1,6 @@
 # Lenny Winnemuller
 
-> Lenny Winnemuller is an Amsterdam-based coach who teaches long-term investing as a skill. He offers a personal 12-month coaching program for people who already know the financial markets and want to build a disciplined, personal long-term investing system. This is education and coaching only: Lenny gives no investment advice and no buy or sell recommendations.
+> Lenny Winnemuller is an Amsterdam-based coach who teaches long-term investing as a skill. He offers a personal 6-month coaching program, with an optional second half to a full year, for people who already know the financial markets and want to build a disciplined, personal long-term investing system. This is education and coaching only: Lenny gives no investment advice and no buy or sell recommendations.
 
 ## About Lenny
 - Based in Amsterdam, the Netherlands
@@ -17,18 +17,19 @@
 - Published weekly at https://lennywinnemuller.com/updates/
 - Latest: [Week 42, 2026: CoreWeave, the Gartner warning and rising US inflation](https://lennywinnemuller.com/updates/2026-10-17-coreweave-the-gartner-warning-and-rising-us-inflation/)
 
-## The 12-month coaching program: The Skill of Long-Term Investing
-- 12 months of personal 1:1 coaching, fully online, in four phases: foundation; understanding businesses, the market and yourself; valuation and portfolio management; behavior and independence
-- Weekly 60-minute 1:1 sessions, weekly study material and assignments, a monthly exam and thesis defense, and 90-minute quarterly reviews
+## The 6-month coaching program: The Skill of Long-Term Investing
+- 6 months of personal 1:1 coaching, fully online, in three phases: foundation; understanding the business; quality, value and first positions
+- Optional extension (months 7–12) to a full year: DCF valuation, consensus, management, the investment memo, risk and behavior, and a 20-year plan
+- Weekly 60-minute 1:1 sessions, weekly study material and assignments, a monthly exam and thesis defense, and 90-minute reviews at months 3 and 6
 - Students practice in a paper portfolio with $100,000 starting capital from week one
-- Deliverables: an Investment Policy Statement, an investment plan with crash playbook and sell rules, a spreadsheet toolkit, investment memos, and a year of documented decisions
+- Deliverables: an Investment Policy Statement, a circle of competence with watchlist, an analysis toolkit, one-page investment theses, and six months of documented decisions
 - Assessed on process, reasoning and discipline, not on short-term outcomes
-- Admission after a free intro call; new students start on 1 December 2026, applications close on 25 November 2026
+- Admission after a free intro call; the next group starts in January 2027, applications close on 14 December 2026
 - 10-day withdrawal with a full refund
 
 ## Links
 - [About Lenny](https://lennywinnemuller.com/about/)
 - [Market updates](https://lennywinnemuller.com/updates/)
-- [12-month program](https://lennywinnemuller.com/program/)
+- [6-month program](https://lennywinnemuller.com/program/)
 - [Privacy policy](https://lennywinnemuller.com/privacy/)
 - Contact: info@lennywinnemuller.com

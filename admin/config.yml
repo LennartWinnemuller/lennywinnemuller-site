@@ -124,7 +124,7 @@ collections:
           - *seo_desc
 
       - name: program
-        label: "12-month program"
+        label: "6-month program"
         file: content/pages/program.json
         fields:
           - { label: "Small line above the title", name: eyebrow, widget: string }

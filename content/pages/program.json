@@ -1,29 +1,29 @@
 {
-  "eyebrow": "The 12-month 1:1 coaching program",
+  "eyebrow": "The 6-month 1:1 coaching program",
   "title": "The Skill of Long-Term Investing",
-  "intro": "A year of personal coaching in which you develop the skill of long-term investing, step by step, with an experienced investor and teacher at your side.",
+  "intro": "Six months of personal coaching in which you build the skill of long-term investing, step by step, with an experienced investor and teacher at your side. Want to go further? You can continue to a full year.",
   "highlights": [
     "Weekly one-on-one sessions (60 min)",
     "Weekly assignments and independent study materials",
     "Monthly thesis defense and exam",
-    "Quarterly reviews at months 3, 6, 9 and 12 (90 min)"
+    "Reviews at months 3 and 6 (90 min)"
   ],
   "why_title": "Why this program",
   "why_text": "You want to truly understand the financial markets and master the skill of long-term investing. But the information in books, videos, personal opinions and social media is scattered, often contradictory and confusing. It does not lead to a clear strategy or a strong set of skills.\n\nWhat is missing is not more information. It's a complete, professional program with an experienced coach working one-on-one with you: a seasoned investor and teacher who helps you develop a coherent skill, step by step, and gives you the clear, honest feedback you need to invest with confidence.",
   "learn_title": "What you will learn",
-  "learn_text": "In 12 months, you learn the skill of long-term investing. You develop and defend your own investment theses, and construct a complete portfolio the way professionals do.\n\nYou learn how financial markets actually work and what makes prices move. You build a solid foundation in market knowledge, investing philosophy and psychology.\n\nYou leave with real, applied experience. In week one you open your own paper portfolio with $100,000 in starting capital: a full year of investing, analyzing and portfolio building in your own paper account.",
+  "learn_text": "In six months, you build the foundation of the skill of long-term investing. You learn to understand businesses, read their numbers, judge quality and compare price with value, and you develop and defend your own investment theses.\n\nYou learn how financial markets actually work and what makes prices move. You build a solid foundation in market knowledge, investing philosophy and psychology.\n\nYou leave with real, applied experience. In week one you open your own paper portfolio with $100,000 in starting capital: six months of investing, analyzing and portfolio building in your own paper account.",
   "for_title": "This is for you if",
   "for_points": [
     "You have explored the markets, or traded or invested a bit, and now want to turn that experience into a lasting skill",
     "You want to aim high, and you accept that there are no guarantees",
-    "You can commit 3 to 5 hours a week, for a full year",
+    "You can commit 3 to 5 hours a week, for six months",
     "You are willing to study, practice and receive honest feedback"
   ],
   "notfor_title": "This is not for you if",
   "notfor_points": [
     "You are looking for signals, picks, or someone to tell you what to buy",
     "You expect quick or guaranteed returns",
-    "You want a 30-day shortcut. This is a year-long program, and that time is exactly what builds the skill"
+    "You want a 30-day shortcut. This is a six-month program, and that time is exactly what builds the skill"
   ],
   "req_title": "Entry requirements",
   "requirements": [
@@ -45,7 +45,7 @@
     }
   ],
   "year_title": "The program",
-  "year_intro": "The program runs for 12 months in four phases. Each phase builds on the previous one, taking you from a solid foundation to full independence.",
+  "year_intro": "The program runs for six months in three phases, each building on the previous one. After six months you can continue with an optional second half, to a full year and full independence.",
   "quarters": [
     {
       "label": "Month 1",
@@ -53,22 +53,22 @@
       "text": "We dive deep into the playing field. You define who you are as an investor: your goals, your time horizon and your objectives. By the end, you have your first Investment Policy Statement (IPS) and your paper portfolio is up and running."
     },
     {
-      "label": "Months 2–5",
-      "title": "Understanding businesses, the market and yourself",
-      "text": "You develop rational thinking skills and learn to recognize quality businesses and competitive advantages. You lay the foundation of your circle of competence and learn to write one-page theses. By the end, you can judge whether a business is worth your time and explain why. Companies that meet your criteria go into your paper portfolio."
+      "label": "Months 2–3",
+      "title": "Understanding the business",
+      "text": "You learn how a business really makes money and how that shows up in the numbers. You lay the foundation of your circle of competence and start your watchlist."
     },
     {
-      "label": "Months 6–10",
-      "title": "Valuation and portfolio management",
-      "text": "You learn to value a business thoroughly, manage risk, size your positions, apply various instruments and develop an in-depth specialization. Every position in your paper portfolio now has a valuation model and a margin of safety, and you defend each new position in a thesis defense."
+      "label": "Months 4–6",
+      "title": "Quality, value and your first positions",
+      "text": "You learn to compare price with value, judge quality with a full annual report analysis, and map an industry and its moats. Your first positions open, each defended with a one-page thesis."
     },
     {
-      "label": "Months 11–12",
-      "title": "Behavior and independence",
-      "text": "You develop awareness of market psychology, go deep into investment philosophy and study your own psychology with a guest investor psychologist. You write extensive sell rules and practice various portfolio types. By the end, you have finished your IPS and your personal investment plan, and you manage your paper portfolio entirely on your own."
+      "label": "Optional · months 7–12",
+      "title": "Valuation, portfolio and independence",
+      "text": "Continue to a full year: your own DCF model, reading the consensus, management, the five-page investment memo, risk and behavior, and your 20-year plan. By the end you manage your paper portfolio entirely on your own."
     }
   ],
-  "modules_button": "Show the full year, week by week",
+  "modules_button": "Show the six months, week by week",
   "modules": [
     {
       "weeks": "1–4",
@@ -79,92 +79,50 @@
     {
       "weeks": "5–8",
       "title": "2. Understanding the business completely",
-      "defense": "One-page business model map, the foundation of your circle of competence and the sectors you will focus on",
+      "defense": "One-page business model map, the foundation of your circle of competence",
       "portfolio": "Your benchmark position is in place and every decision is logged"
     },
     {
       "weeks": "9–12",
-      "title": "3. Reading the accounts",
-      "defense": "Business case: explain where the money went",
+      "title": "3. How the business shows up in the numbers",
+      "defense": "Business case: where did the money go?",
       "portfolio": "Benchmark positions in place, the watchlist grows, every decision journaled"
     },
     {
       "weeks": "13",
-      "title": "Quarterly review",
+      "title": "Review",
       "defense": "Quality of reasoning, behavioral gap, goals for the next quarter",
       "portfolio": ""
     },
     {
       "weeks": "14–17",
-      "title": "4. Judging quality with numbers",
-      "defense": "Full annual report analysis and your IPS v2",
+      "title": "4. Price vs value, relative valuation and margin of safety",
+      "defense": "Sector-relative value: cheap or broken?",
       "portfolio": "First positions open, each with a written one-page thesis"
     },
     {
-      "weeks": "18–20",
-      "title": "5. Management and capital allocation",
-      "defense": "Management scorecard: promises vs. delivered",
+      "weeks": "18–21",
+      "title": "5. Judging quality",
+      "defense": "Full annual report analysis and your IPS v2",
       "portfolio": "The watchlist grows, and every candidate must earn its place in writing"
     },
     {
-      "weeks": "21–24",
-      "title": "6. The cost of capital",
-      "defense": "Discount rate: the honest range",
+      "weeks": "22–24",
+      "title": "6. The industry: competition, moats and market dynamics",
+      "defense": "Industry map and moat verdict",
       "portfolio": "New positions defended in a thesis defense"
     },
     {
       "weeks": "25",
-      "title": "Quarterly review",
-      "defense": "Quality of reasoning, first positions, checklists, decision journal and goals for the next quarter",
-      "portfolio": ""
+      "title": "Half-year review",
+      "defense": "Quality of reasoning, first positions, checklists, decision journal and your plan for continued growth",
+      "portfolio": "Six months of documented decisions; the benchmark comparison is shown"
     },
     {
-      "weeks": "26–30",
-      "title": "7. Intrinsic valuation",
-      "defense": "Discounted cash flow model (DCF), reverse DCF and your IPS v3",
-      "portfolio": "Every position now carries your own valuation model and a margin of safety"
-    },
-    {
-      "weeks": "31–33",
-      "title": "8. Relative valuation",
-      "defense": "Sector-relative value: cheap or broken?",
-      "portfolio": ""
-    },
-    {
-      "weeks": "34–37",
-      "title": "9. The thesis",
-      "defense": "Five-page investment memo with price, size and margin of safety",
-      "portfolio": "Portfolio management and position sizing applied"
-    },
-    {
-      "weeks": "38",
-      "title": "Quarterly review",
-      "defense": "Process: was the IPS followed? Behavioral gap, stress test and goals for the next quarter",
-      "portfolio": ""
-    },
-    {
-      "weeks": "39–41",
-      "title": "10. Risk and the portfolio",
-      "defense": "IPS v4 and a portfolio plan with written sell rules",
-      "portfolio": "Portfolio management, with process graded separately from outcome"
-    },
-    {
-      "weeks": "42–44",
-      "title": "11. Behavior, process, measurement",
-      "defense": "Emotion map: triggers, patterns, management",
-      "portfolio": "You manage the portfolio. The coach gives feedback, the decisions are yours"
-    },
-    {
-      "weeks": "45–48",
-      "title": "12. The real thing",
-      "defense": "The 20-year plan, defended",
-      "portfolio": ""
-    },
-    {
-      "weeks": "49",
-      "title": "Capstone and final review",
-      "defense": "Final investment plan, final version of your IPS and a plan for your maturing process",
-      "portfolio": "Independence: twelve months of documented decisions. The benchmark comparison is shown, but the process record is what counts"
+      "weeks": "26–49",
+      "title": "Optional extension: months 7–12",
+      "defense": "Intrinsic valuation (DCF and reverse DCF), reading the consensus, management and capital allocation, the five-page investment memo, risk and behavior, and the 20-year plan, with two more reviews",
+      "portfolio": "Every position carries your own valuation model; by the end you manage the portfolio entirely on your own"
     }
   ],
   "how_title": "How the program works",
@@ -190,36 +148,36 @@
       "text": "You defend your monthly assignment, such as part of your IPS, a valuation model or a portfolio update. You pass when your reasoning holds up under scrutiny. If not, you get feedback and a second attempt."
     },
     {
-      "title": "Quarterly review (90 min)",
-      "text": "Every quarter closes with a review of your progress, research process and decision journal."
+      "title": "Review at months 3 and 6 (90 min)",
+      "text": "At months 3 and 6 we review your progress, research process and decision journal."
     },
     {
       "title": "Built-in flexibility",
-      "text": "A two-week summer break, a one-week winter break and four personal flex weeks for holidays, illness, catching up or a retake."
+      "text": "A one-week break and two personal flex weeks for holidays, illness, catching up or a retake."
     }
   ],
   "deliverables_title": "What you finish with",
-  "deliverables_intro": "You leave with a complete, personal investing system, usable for the rest of your life.",
+  "deliverables_intro": "You leave with the foundation of your own investing system, ready to build on.",
   "deliverables": [
     {
       "title": "Your Investment Policy Statement (IPS)",
-      "text": "Your personal rulebook: goals, required return, allocation, position limits, holding policy and crisis protocol, rewritten every quarter as your skills grow."
+      "text": "Your personal rulebook: goals, required return, contribution rules, circle of competence and holding policy."
     },
     {
-      "title": "Your Investment Plan",
-      "text": "How the rules get applied, week by week: your long-term plan, a crash playbook, and written sell rules for every holding."
+      "title": "Your Circle of Competence",
+      "text": "Your sectors, an industry map with moat verdicts, and a watchlist where every company has earned its place."
     },
     {
-      "title": "Your Spreadsheet Toolkit",
-      "text": "A personal dashboard, a discounted cash flow (DCF) model, sensitivity analysis, and simulators for position sizing, rebalancing and retirement."
+      "title": "Your Analysis Toolkit",
+      "text": "Your business model map, annual report checklist and relative valuation sheet with a margin of safety."
     },
     {
-      "title": "Your Investment Memos",
-      "text": "The written arguments behind your key decisions, from valuation packs to a letter to your future self."
+      "title": "Your One-Page Theses",
+      "text": "The written case behind every position in your portfolio, each one defended in a thesis defense."
     },
     {
-      "title": "A Year of Real Practice",
-      "text": "Your paper portfolio and decision journal: twelve months of documented decisions, quarterly reviews, and lessons you can point to."
+      "title": "Six Months of Practice",
+      "text": "Your paper portfolio and decision journal: six months of documented decisions, two reviews, and lessons you can point to."
     }
   ],
   "assessed_title": "What you are assessed on",
@@ -237,7 +195,7 @@
     },
     {
       "question": "Will I actually beat the market after this?",
-      "answer": "Maybe not, but by the end of the year you will know whether to try, and how. The skills transfer either way: understanding businesses, valuing them, managing risk and managing your own psychology pay off in your career, your business, and every financial decision you make after this program."
+      "answer": "Maybe not, but by the end of the program you will know whether to try, and how. The skills transfer either way: understanding businesses, valuing them, managing risk and managing your own psychology pay off in your career, your business, and every financial decision you make after this program."
     },
     {
       "question": "Is this investment advice?",
@@ -245,11 +203,11 @@
     },
     {
       "question": "What if I fall behind?",
-      "answer": "Four flex weeks exist precisely for that. The program extends; it does not skip. Sequence matters more than speed."
+      "answer": "Two flex weeks exist precisely for that. The program extends; it does not skip. Sequence matters more than speed."
     },
     {
-      "question": "Why twelve months?",
-      "answer": "Because understanding businesses and markets, building a valuation and surviving a defense are skills, and skills take practice. In addition, the psychological layer only shows itself over months of real decisions, not in one webinar."
+      "question": "Why six months, and can I continue?",
+      "answer": "Six months is enough to build a real foundation: understanding businesses, reading the numbers and defending your first theses. The deeper layers, such as your own valuation model and the psychology of real decisions, take longer. That's why you can continue for six more months to a full year."
     },
     {
       "question": "What if I start and realize it's not for me?",
@@ -266,9 +224,9 @@
   ],
   "cta_eyebrow": "Limited availability",
   "cta_title": "Ready to build the skill of long-term investing?",
-  "cta_text": "Because every student receives intensive 1:1 coaching, I only work with a small number of students at a time. It starts with a free, personal intro call: where you are now, what you want to achieve, and whether this program is the right fit. An honest conversation. New students start on 1 December. Applications close on 25 November.",
+  "cta_text": "Because every student receives intensive 1:1 coaching, I only work with a small number of students at a time. It starts with a free, personal intro call: where you are now, what you want to achieve, and whether this program is the right fit. An honest conversation. The next group starts in January. Applications close on 14 December.",
   "cta_button": "Book your intro call",
   "cta_link": "https://calendly.com/lenny-peakcapitaltrading",
-  "seo_title": "The Skill of Long-Term Investing: 12-Month 1:1 Coaching | Lenny Winnemuller",
-  "seo_description": "A 12-month 1:1 coaching program in long-term investing: weekly sessions, thesis defenses and a $100,000 paper portfolio. Education only, no investment advice."
+  "seo_title": "The Skill of Long-Term Investing: 6-Month 1:1 Coaching | Lenny Winnemuller",
+  "seo_description": "A 6-month 1:1 coaching program in long-term investing, with an optional second half: weekly sessions, thesis defenses and a $100,000 paper portfolio. Education only, no investment advice."
 }
