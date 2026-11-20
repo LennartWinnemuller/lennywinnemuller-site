@@ -1,6 +1,6 @@
 # Lenny Winnemuller
 
-> Lenny Winnemuller is an Amsterdam-based coach who teaches long-term investing as a skill. He offers a personal 6-month coaching program for people who already know the financial markets and want to build a disciplined, personal long-term investing system. This is education and coaching only: Lenny gives no investment advice and no buy or sell recommendations.
+> Lenny Winnemuller is an Amsterdam-based coach who teaches long-term investing as a skill. He offers a personal six-month coaching program for people who already know the financial markets and want to build a disciplined, personal long-term investing system. This is education and coaching only: Lenny gives no investment advice and no buy or sell recommendations.
 
 ## About Lenny
 - Based in Amsterdam, the Netherlands
@@ -17,7 +17,7 @@
 - Published weekly at https://lennywinnemuller.com/updates/
 - Latest: [Week 42, 2026: CoreWeave, the Gartner warning and rising US inflation](https://lennywinnemuller.com/updates/2026-10-17-coreweave-the-gartner-warning-and-rising-us-inflation/)
 
-## The 6-month coaching program: The Skill of Long-Term Investing
+## The six-month coaching program: The Skill of Long-Term Investing
 - 6 months of personal 1:1 coaching, fully online, in four phases: foundation; understanding businesses and value; valuation and the thesis; behavior and independence
 - Weekly 60-minute 1:1 sessions, weekly study material and assignments, an exam and thesis defense every two weeks, and 90-minute reviews at months 3 and 6
 - Students practice in a paper portfolio with $100,000 starting capital from week one
@@ -29,6 +29,6 @@
 ## Links
 - [About Lenny](https://lennywinnemuller.com/about/)
 - [Market updates](https://lennywinnemuller.com/updates/)
-- [6-month program](https://lennywinnemuller.com/program/)
+- [Six-month program](https://lennywinnemuller.com/program/)
 - [Privacy policy](https://lennywinnemuller.com/privacy/)
 - Contact: info@lennywinnemuller.com
