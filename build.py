@@ -11,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'public')
 SITE = 'https://lennywinnemuller.com'
 PERSON_ID = SITE + '/#lenny'
-NAV = [('/about/', 'About me'), ('/updates/', 'Market updates'), ('/program/', '12-month program')]
+NAV = [('/about/', 'About me'), ('/updates/', 'Market updates'), ('/program/', 'Six-month program')]
 
 
 def load(name):
@@ -48,7 +48,7 @@ SOCIAL = [(name, S.get(key)) for key, name in [('instagram', 'Instagram'), ('x',
 PERSON = {
     "@type": "Person", "@id": PERSON_ID, "name": "Lenny Winnemuller", "url": SITE + "/",
     "image": PHOTO, "jobTitle": "Long-term investing coach",
-    "description": "Coach who teaches long-term investing as a skill through a personal 12-month coaching program. Education and coaching only, no investment advice.",
+    "description": "Coach who teaches long-term investing as a skill through a personal six-month coaching program. Education and coaching only, no investment advice.",
     "email": "mailto:" + S['email'],
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Amsterdam"},
@@ -56,7 +56,7 @@ PERSON = {
     "sameAs": [url for _, url in SOCIAL],
 }
 SERVICE = {
-    "@type": "Service", "@id": SITE + "/program/#service", "name": "12-Month Coaching Program in Long-Term Investing",
+    "@type": "Service", "@id": SITE + "/program/#service", "name": "Six-Month Coaching Program in Long-Term Investing",
     "serviceType": "Investing education and coaching", "provider": {"@id": PERSON_ID}, "url": SITE + "/program/",
     "description": C['program']['seo_description'],
     "areaServed": "Worldwide",
@@ -461,7 +461,7 @@ def build_feed():
 
 def build_404():
     page('/404/', 'Page not found | Lenny Winnemuller', 'This page does not exist.',
-         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/program/">12-month program</a>.</p></div></section>')
+         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/program/">six-month program</a>.</p></div></section>')
     shutil.move(os.path.join(OUT, '404', 'index.html'), os.path.join(OUT, '404.html'))
     os.rmdir(os.path.join(OUT, '404'))
 

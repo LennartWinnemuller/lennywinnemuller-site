@@ -1,8 +1,8 @@
 {
   "hero_eyebrow": "Long-term investing coach · Amsterdam",
   "hero_title": "Learn the skill of long-term investing",
-  "hero_text": "A 12-month 1:1 coaching program for people who already know the financial markets and want a disciplined, personal investing process. Education and coaching, no investment advice.",
-  "hero_button": "See the 12-month program",
+  "hero_text": "A six-month 1:1 coaching program for people who already know the financial markets and want a disciplined, personal investing process. Education and coaching, no investment advice.",
+  "hero_button": "See the six-month program",
   "hero_button_call": "Book your intro call",
   "updates_title": "Weekly notes for long-term investors",
   "about_button": "More about me",
@@ -11,7 +11,7 @@
   "program_cards": [
     {
       "title": "Investment Policy Statement",
-      "text": "Your personal rulebook, rewritten every quarter."
+      "text": "Your personal rulebook for investing."
     },
     {
       "title": "Investment Plan",
@@ -26,19 +26,19 @@
       "text": "The written arguments behind your key decisions."
     },
     {
-      "title": "A Year of Real Practice",
-      "text": "Twelve months of documented decisions."
+      "title": "Six Months of Real Practice",
+      "text": "Six months of documented decisions."
     }
   ],
   "program_button": "See the full program",
-  "program_eyebrow": "The 12-month 1:1 coaching program",
-  "program_intro": "A year of weekly 1:1 coaching. You develop and defend your own investment theses, and run a $100,000 paper portfolio from week one.",
+  "program_eyebrow": "The six-month 1:1 coaching program",
+  "program_intro": "Six months of weekly 1:1 coaching. You develop and defend your own investment theses, and run a $100,000 paper portfolio from week one.",
   "photo": "/images/lt.png",
   "updates_eyebrow": "Market updates",
   "seo_title": "Lenny Winnemuller | Teaching the skill of Long-Term Investing",
   "about_eyebrow": "About me",
   "updates_intro": "Weekly updates on what moved the markets and what it means for long-term investors",
-  "seo_description": "Lenny Winnemuller teaches the skill of long-term investing through a 12-month 1:1 coaching program. Education and coaching, no investment advice.",
+  "seo_description": "Lenny Winnemuller teaches the skill of long-term investing through a six-month 1:1 coaching program. Education and coaching, no investment advice.",
   "program_title": "The Skill of Long-Term Investing",
   "about_text": "I'm Lenny Winnemuller, based in Amsterdam. I started my career as a professional trader at an Amsterdam-based proprietary trading firm and later earned a seat at Peak Capital Trading. Today I invest independently for the long term and teach long-term investing in a Canadian trader education program. I graduated with honours in Psychology from the University of Amsterdam, specialising in emotion, performance and group behaviour.",
   "program_tag": "You walk away with"
