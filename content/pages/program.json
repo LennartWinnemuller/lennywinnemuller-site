@@ -6,7 +6,7 @@
     "Weekly one-on-one sessions (60 min)",
     "Weekly assignments and independent study materials",
     "Thesis defense and exam every two weeks",
-    "Reviews at months 3 and 6 (90 min)"
+    "Reviews after 3 and after 6 months (90 min)"
   ],
   "why_title": "Why this program",
   "why_text": "You want to truly understand the financial markets and master the skill of long-term investing. But the information in books, videos, personal opinions and social media is scattered, often contradictory and confusing. It does not lead to a clear strategy or a strong set of skills.\n\nWhat is missing is not more information. It's a complete, professional program with an experienced coach working one-on-one with you: a seasoned investor and teacher who helps you develop a coherent skill, step by step, and gives you the clear, honest feedback you need to invest with confidence.",
@@ -107,50 +107,50 @@
       "portfolio": "New positions defended in a thesis defense"
     },
     {
-      "weeks": "13",
-      "title": "Review",
+      "weeks": "12/13",
+      "title": "Review after 3 months",
       "defense": "Quality of reasoning, first positions, behavioral gap and goals for the next three months",
       "portfolio": ""
     },
     {
-      "weeks": "14–15",
+      "weeks": "13–14",
       "title": "7. Intrinsic valuation (incl. cost of capital)",
       "defense": "Discounted cash flow model (DCF), reverse DCF and your IPS v3",
       "portfolio": "Every position now carries your own valuation model and a margin of safety"
     },
     {
-      "weeks": "16–17",
+      "weeks": "15–16",
       "title": "8. Reading the consensus",
       "defense": "Consensus read, defended",
       "portfolio": ""
     },
     {
-      "weeks": "18–19",
+      "weeks": "17–18",
       "title": "9. Management and capital allocation",
       "defense": "Management scorecard: promises vs. delivered",
       "portfolio": "Position sizing applied"
     },
     {
-      "weeks": "20–21",
+      "weeks": "19–20",
       "title": "10. The thesis",
       "defense": "Five-page investment memo with price, size and margin of safety",
       "portfolio": "Process graded separately from outcome"
     },
     {
-      "weeks": "22–23",
+      "weeks": "21–22",
       "title": "11. Risk, behavior and measurement",
       "defense": "Emotion map and decision-journal audit",
       "portfolio": "You manage the portfolio. The coach gives feedback, the decisions are yours"
     },
     {
-      "weeks": "24",
+      "weeks": "23–24",
       "title": "12. The real deal",
       "defense": "The 20-year plan, defended, and your final IPS",
       "portfolio": ""
     },
     {
       "weeks": "25",
-      "title": "Capstone and final review",
+      "title": "Final week: capstone and review after 6 months",
       "defense": "Final investment plan, final IPS and your plan for continued growth",
       "portfolio": "Independence: six months of documented decisions. The benchmark comparison is shown, but the process record is what counts"
     }
@@ -178,8 +178,8 @@
       "text": "You defend the assignment of each topic, such as part of your IPS, a valuation model or a portfolio update. You pass when your reasoning holds up under scrutiny. If not, you get feedback and a second attempt."
     },
     {
-      "title": "Review at months 3 and 6 (90 min)",
-      "text": "At months 3 and 6 we review your progress, research process and decision journal."
+      "title": "Reviews after 3 and after 6 months (90 min)",
+      "text": "After 3 and after 6 months we review your progress, research process and decision journal."
     },
     {
       "title": "Built-in flexibility",
