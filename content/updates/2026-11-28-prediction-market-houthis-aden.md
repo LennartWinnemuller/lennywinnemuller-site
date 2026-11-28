@@ -1,5 +1,5 @@
 ---
-title: "Prediction market bet: will the Houthis enter Aden before December 31, 2026?"
+title: "Thinking in probabilities: my bet on the war in Yemen"
 url: houthis-aden-prediction-market
 date: 2026-11-28
 description: I'm betting "No" on a prediction market asking whether the Houthis
