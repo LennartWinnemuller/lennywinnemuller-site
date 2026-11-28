@@ -9,6 +9,7 @@ description: I'm betting "No" on a prediction market asking whether the Houthis
 ---
 **In brief**\
 \
+\
 **The bet:** "No" on *Will the Houthis enter Aden before December 31, 2026?*, bought at $0.82, so the market implies an 18% chance of "Yes".
 
 **My view:** I put the probability of "Yes" at about 10%. Mountainous terrain, a coordinated defence of Aden, Saudi air power, the Taiz front, government counterattacks elsewhere and only 33 days left make a breakthrough this year unlikely.
