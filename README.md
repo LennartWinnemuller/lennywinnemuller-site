@@ -8,6 +8,6 @@ Everything is editable in the editor at https://lennywinnemuller.com/admin:
 - **Pages** (homepage, about, market updates page, program, site settings): saved as JSON in `content/pages/`. Field names must match `admin/config.yml`.
 - **Photos:** uploaded to `static/images/`, served at `/images/`.
 
-Layout, shared header and footer and structured data live in `build.py`; the privacy policy in `pages/privacy.py`; styling in `styles.css`.
+Layout, shared header and footer and structured data live in `build.py`; the privacy policy in `pages/privacy.py`; styling in `styles.css`. The design is editorial: Newsreader (headlines, article text) and IBM Plex Sans, self-hosted from `static/fonts/` (OFL licensed), on a paper background with thin rules.
 
 Local build: `python3 build.py` (no dependencies), then open `public/`.

@@ -1,6 +1,6 @@
 {
   "hero_eyebrow": "Long-term investing coach · Amsterdam",
-  "hero_title": "Learn the skill of long-term investing",
+  "hero_title": "Learn the *skill* of long-term investing",
   "hero_text": "A six-month 1:1 coaching program for people who already know the financial markets and want a disciplined, personal investing process. Education and coaching, no investment advice.",
   "hero_button": "See the six-month program",
   "hero_button_call": "Book your intro call",
@@ -33,7 +33,7 @@
   "program_button": "See the full program",
   "program_eyebrow": "The six-month 1:1 coaching program",
   "program_intro": "Six months of weekly 1:1 coaching. You develop and defend your own investment theses, and run a $100,000 paper portfolio from week one.",
-  "photo": "/images/lt.png",
+  "photo": "/images/lt.jpg",
   "updates_eyebrow": "Market updates",
   "seo_title": "Lenny Winnemuller | Teaching the skill of Long-Term Investing",
   "about_eyebrow": "About me",
@@ -41,5 +41,24 @@
   "seo_description": "Lenny Winnemuller teaches the skill of long-term investing through a six-month 1:1 coaching program. Education and coaching, no investment advice.",
   "program_title": "The Skill of Long-Term Investing",
   "about_text": "I'm Lenny Winnemuller, based in Amsterdam. I started my career as a professional trader at an Amsterdam-based proprietary trading firm and later earned a seat at Peak Capital Trading. Today I invest independently for the long term and teach long-term investing in a Canadian trader education program. I graduated with honours in Psychology from the University of Amsterdam, specialising in emotion, performance and group behaviour.",
-  "program_tag": "You walk away with"
+  "hero_photo": "/images/lenny-teaching.jpg",
+  "hero_caption": "Teaching a live class on market updates, Vancouver, 2024.",
+  "about_facts": [
+    {
+      "title": "Psychology, honours",
+      "text": "University of Amsterdam"
+    },
+    {
+      "title": "Peak Capital Trading",
+      "text": "Earned a seat at the firm"
+    },
+    {
+      "title": "Teacher",
+      "text": "Canadian trader education program"
+    }
+  ],
+  "quote": "Long-term investing isn't about finding the next big idea. It's a skill: making good decisions, consistently, for years.",
+  "quote_author": "Lenny Winnemuller",
+  "program_photo": "/images/live-class.jpg",
+  "program_caption": "Six months of weekly 1:1 coaching, with a $100,000 paper portfolio from week one."
 }

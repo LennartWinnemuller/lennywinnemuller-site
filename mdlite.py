@@ -19,7 +19,12 @@ def parse_front_matter(text):
                 block.append(lines[i].strip())
                 i += 1
             val = ('\n' if val.startswith('|') else ' ').join(block).strip()
-        elif len(val) >= 2 and val[0] == val[-1] == "'":
+        else:
+            # A plain or quoted value may continue on indented lines (Decap folds long text that way).
+            while i < len(lines) and lines[i].startswith(' ') and lines[i].strip():
+                val += ' ' + lines[i].strip()
+                i += 1
+        if len(val) >= 2 and val[0] == val[-1] == "'":
             val = val[1:-1].replace("''", "'")
         elif len(val) >= 2 and val[0] == val[-1] == '"':
             val = val[1:-1].encode().decode('unicode_escape') if '\\' in val else val[1:-1]
