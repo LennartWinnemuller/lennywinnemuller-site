@@ -7,7 +7,7 @@ description: I'm betting "No" on a prediction market asking whether the Houthis
   into a probability, why I think the market overprices "Yes", and what would
   change my mind.
 ---
-**TLDR**\
+**In brief**\
 \
 **The bet:** "No" on *Will the Houthis enter Aden before December 31, 2026?*, bought at $0.82, so the market implies an 18% chance of "Yes".
 
