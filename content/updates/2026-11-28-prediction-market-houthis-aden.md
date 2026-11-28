@@ -1,20 +1,17 @@
 ---
 title: "Thinking in probabilities: my bet on the war in Yemen"
-url: houthis-aden-prediction-market
 date: 2026-11-28
+url: houthis-aden-prediction-market
 description: I'm betting "No" on a prediction market asking whether the Houthis
   will enter Aden before the end of 2026. Here is how I turn a complex conflict
   into a probability, why I think the market overprices "Yes", and what would
   change my mind.
 ---
-**TL;DR**
-
 **The bet:** "No" on *Will the Houthis enter Aden before December 31, 2026?*, bought at $0.82, so the market implies an 18% chance of "Yes".
 
 **My view:** I put the probability of "Yes" at about 10%. Mountainous terrain, a coordinated defence of Aden, Saudi air power, the Taiz front, government counterattacks elsewhere and only 33 days left make a breakthrough this year unlikely.
 
 **The edge:** an 8-point gap between my estimate and the market. That gives an expected value of $0.08 per share, roughly a 9.8% expected return over about a month (before fees).
-
 
 ## Why this matters for investors
 
@@ -39,6 +36,7 @@ This situation has very few genuinely comparable precedents, so a reliable base 
 * **Now, the approaches to Aden:** fighting for the roads around the city, including Aqabat Thara, a mountain pass between Al-Bayda and Abyan. Saudi airstrikes have intensified, and Taiz remains under Houthi siege.
 
 ![Expected encirclement of Aden: the Lahj front in the west and Aqabat Thara towards Abyan in the northeast](/images/aden-encirclement-map.jpg)
+
 *Map: Yemen Conflict map (ArcGIS), last updated 23 November 2026. Arrows added by me.*
 
 ## Why I'm betting "No"
@@ -60,6 +58,7 @@ This situation has very few genuinely comparable precedents, so a reliable base 
 The latest maps show this eastern pincer is already moving. Between 24 and 26 November, the Houthis advanced near Ad-Durayb, south of the Thara area, with Shuqrah on the Abyan coast as a possible next objective. That matters, but it also shows how far there still is to go: even taking Shuqrah would cut Aden off from the east, not put Houthi forces inside the city.
 
 ![Southern Aden, 26 November: Houthi advance near Ad-Durayb, with Shuqrah as a possible objective](/images/southern-aden-26-nov-war-cube.jpg)
+
 *Map: The Cube Maps (@war_cube on X), 26 November 2026.*
 
 **8. Time.** Only 33 days remain. Even with intent, the Houthis would need major progress very quickly.
