@@ -52,7 +52,7 @@ PERSON = {
     "email": "mailto:" + S['email'],
     "address": {"@type": "PostalAddress", "addressLocality": "Amsterdam", "addressCountry": "NL"},
     "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Amsterdam"},
-    "knowsAbout": ["Long-term investing", "Investor psychology", "Group behavior", "Behavioral finance", "Portfolio management"],
+    "knowsAbout": ["Long-term investing", "Probabilistic thinking", "Market behavior", "Investor psychology", "Market psychology", "Group behavior", "Behavioral finance", "Portfolio management", "Valuation", "Macroeconomics", "Geopolitics"],
     "sameAs": [url for _, url in SOCIAL],
 }
 SERVICE = {
@@ -578,8 +578,14 @@ def main():
     if os.path.isdir(OUT):
         shutil.rmtree(OUT)
     os.makedirs(OUT)
-    for f in ['styles.css', 'favicon.svg', 'robots.txt', 'llms.txt', '_redirects']:
+    for f in ['styles.css', 'favicon.svg', 'robots.txt', '_redirects']:
         shutil.copy(os.path.join(HERE, f), OUT)
+    # llms.txt: the hand-written summary, with the list of market updates kept up to date automatically.
+    llms = open(os.path.join(HERE, 'llms.txt'), encoding='utf-8').read()
+    listing = ''.join(f"- [{p['week']}: {p['title']}]({SITE}{p['path']}): {p['description']}\n" for p in POSTS)
+    llms = re.sub(r'- Latest: .*\n', '', llms)
+    llms = llms.replace('## The six-month', '### All updates, newest first\n' + listing + '\n## The six-month', 1)
+    open(os.path.join(OUT, 'llms.txt'), 'w', encoding='utf-8').write(llms)
     with open(os.path.join(OUT, '_redirects'), 'a', encoding='utf-8') as r:
         for p in POSTS:
             if p['old_path']:
