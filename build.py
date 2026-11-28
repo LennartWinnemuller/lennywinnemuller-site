@@ -339,6 +339,16 @@ def build_about():
 
   <section>
     <div class="wrap">
+      {sec_head(a.get('approach_title', ''))}
+      <div class="approach">
+        <div class="essay">{md(a.get('approach_text', ''))}</div>
+        {columns(a.get('expertise', []))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
       {sec_head(a['section_title'])}
       <div class="essay">{md(a['section_text'])}</div>
     </div>

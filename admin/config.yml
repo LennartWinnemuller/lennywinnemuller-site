@@ -112,6 +112,16 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: "Photo (also used for Google and social media)", name: photo, widget: image, choose_url: true }
           - { label: Text, name: text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - { label: "How I think: title", name: approach_title, widget: string, required: false }
+          - { label: "How I think: text", name: approach_text, widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [] }
+          - label: "How I think: areas of expertise"
+            name: expertise
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
           - { label: "Second section: title", name: section_title, widget: string }
           - { label: "Second section: text", name: section_text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
           - { label: "Photos: title", name: photos_title, widget: string }

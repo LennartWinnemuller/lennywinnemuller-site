@@ -257,3 +257,5 @@ footer .social { margin-top: 8px; }
   .gallery, .gallery.n2 { grid-template-columns: 1fr; }
   .actions .btn { width: 100%; text-align: center; }
 }
+.approach .essay { margin-bottom: 40px; }
+.approach .cols-ruled { border-top: 1px solid var(--hair); padding-top: 22px; }
