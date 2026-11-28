@@ -143,6 +143,7 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, og_typ
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{SITE}{path}">
+<meta name="google-site-verification" content="r1mPHrUc0cy2W7aTZ_JBD6tt68M-0Tei_Pd6dlZZGB8">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
