@@ -1,17 +1,45 @@
 {
   "photos": [
     {
+      "image": "/images/lenny-teaching.jpg",
+      "caption": "Teaching market updates, Vancouver, 2024"
+    },
+    {
       "image": "/images/live-class.jpg",
       "caption": "Market updates in Vancouver, Canada 2024 "
+    },
+    {
+      "image": "/images/tedxbbt-elevate.jpg",
+      "caption": "TEDxBBT Elevate"
     }
   ],
   "section_text": "Long-term investing isn't about finding the next big idea, rather it's a skill. Making good decisions, consistently, for years. Like any skill, it can be developed and learned, but it takes the right method, deliberate practice and someone who gives you honest feedback along the way.\n\nI never tell anyone what to buy or give buy recommendations. I teach you how to make your own well formed decisions, so you never have to believe any story again.",
   "eyebrow": "About me",
   "text": "I started my career as a professional trader at an Amsterdam-based proprietary trading firm. After strong results in the Peak Capital Trading bootcamp, I earned a seat at Andrew Aziz's firm, Peak Capital Trading.\n\nToday I invest independently for the long term and teach long-term investing in a Canadian trader education program. Years of working in the markets taught me what really makes the difference: not the next big idea, but discipline, a clear process and control over your own behaviour.\n\nThat is where my academic background comes in. I graduated with honours in Psychology from the University of Amsterdam, specialising in emotion, performance and group behaviour, and I also hold a degree in entrepreneurship.\n\nMy mission is to provide honest and responsible financial education, so students learn to invest independently for the long term, while enjoying the process of learning about the economy, the philosophy of investing and their own psychology.",
-  "photo": "/images/lt.png",
+  "photo": "/images/lt.jpg",
   "seo_title": "About Lenny Winnemuller | Teacher Long-Term Investing ",
   "title": "Lenny Winnemuller",
   "photos_title": "Teaching my experience with passion",
   "seo_description": "Lenny Winnemuller is an Amsterdam-based coach who teaches long-term investing as a skill. Former professional trader, graduated with honours in Psychology from the University of Amsterdam.",
-  "section_title": "Why I teach investing as a skill"
+  "section_title": "Why I teach investing as a skill",
+  "approach_title": "How I think about markets",
+  "approach_text": "I'm a teacher with a strong grounding in probabilistic thinking, market behaviour and psychology: both the psychology of the individual investor and the psychology of the market as a whole.\n\nMy philosophy is to think rationally, to form critical and well-founded views about the future, and to keep updating them as new information comes in. A view is never finished. It is a probability that gets sharper with every piece of evidence.\n\nFor me, the satisfaction lies in the progress and the learning itself: understanding complex matters a little better every week, where investing, finance, business, macroeconomics and geopolitics meet. There is a true pleasure in rationally outthinking and beating the market.",
+  "expertise": [
+    {
+      "title": "Probabilistic thinking",
+      "text": "Turning uncertain situations into probabilities, weighing the evidence and updating views when the facts change."
+    },
+    {
+      "title": "Market behaviour",
+      "text": "How prices move, how crowds react to news, and why markets overshoot in both directions."
+    },
+    {
+      "title": "Psychology",
+      "text": "How individuals make decisions under pressure, and the collective psychology that drives markets."
+    },
+    {
+      "title": "Where it all meets",
+      "text": "Investing, finance, business, macroeconomics and geopolitics, understood as one connected picture."
+    }
+  ]
 }

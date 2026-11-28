@@ -31,6 +31,7 @@ collections:
       - { label: Date, name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
       - { label: "Short URL (optional, e.g. france-bond-yields)", name: url, widget: string, required: false, hint: "The web address becomes lennywinnemuller.com/updates/<this>/. Leave empty to use the long default. Changing it later keeps the old address working." }
       - { label: "Short summary (shown in the list and in Google)", name: description, widget: text }
+      - { label: "Picture for the list and social media (optional)", name: image, widget: image, required: false, choose_url: true, hint: "Leave empty to use the first image in the text." }
       - { label: Text, name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [image] }
 
   - name: pages
@@ -67,28 +68,39 @@ collections:
           - { label: "Top of the page: title", name: hero_title, widget: string }
           - { label: "Top of the page: text", name: hero_text, widget: text }
           - { label: "Top of the page: program button", name: hero_button, widget: string }
-          - { label: "Top of the page: intro call button", name: hero_button_call, widget: string }
-          - { label: "About me: small line", name: about_eyebrow, widget: string }
+          - { label: "Top of the page: intro call link text", name: hero_button_call, widget: string }
+          - { label: "Top of the page: photo", name: hero_photo, widget: image, choose_url: true, required: false }
+          - { label: "Top of the page: photo caption", name: hero_caption, widget: string, required: false }
+          - { label: "About me: section name", name: about_eyebrow, widget: string }
           - { label: "About me: title", name: about_title, widget: string }
           - { label: "About me: text", name: about_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
           - { label: "About me: button", name: about_button, widget: string }
-          - { label: "Photo on the homepage", name: photo, widget: image, choose_url: true }
-          - { label: "Market updates: small line", name: updates_eyebrow, widget: string }
-          - { label: "Market updates: title", name: updates_title, widget: string }
-          - { label: "Market updates: intro", name: updates_intro, widget: text }
+          - { label: "About me: photo", name: photo, widget: image, choose_url: true }
+          - label: "About me: facts next to the text"
+            name: about_facts
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+          - { label: "Quote in the middle of the page (leave empty to hide)", name: quote, widget: text, required: false, hint: "Without quotation marks; they are added automatically." }
+          - { label: "Quote: name under it", name: quote_author, widget: string, required: false }
+          - { label: "Market updates: section name", name: updates_title, widget: string }
           - { label: "Market updates: button", name: updates_button, widget: string }
-          - { label: "Program: small line", name: program_eyebrow, widget: string }
+          - { label: "Program: section name", name: program_eyebrow, widget: string }
           - { label: "Program: title", name: program_title, widget: string }
           - { label: "Program: intro", name: program_intro, widget: text }
-          - { label: "Program: label on each card", name: program_tag, widget: string }
-          - label: "Program: cards"
+          - { label: "Program: photo", name: program_photo, widget: image, choose_url: true, required: false }
+          - { label: "Program: photo caption", name: program_caption, widget: string, required: false }
+          - label: "Program: what you walk away with (numbered list)"
             name: program_cards
             widget: list
             summary: "{{fields.title}}"
             fields:
               - { label: Title, name: title, widget: string }
               - { label: Text, name: text, widget: text }
-          - { label: "Program: button", name: program_button, widget: string }
+          - { label: "Program: link text", name: program_button, widget: string }
           - &seo_title { label: "Google title", name: seo_title, widget: string, hint: "Shown as the blue link in Google. Keep it under about 60 characters." }
           - &seo_desc { label: "Google description", name: seo_description, widget: text, hint: "Shown under the link in Google. Keep it under about 155 characters." }
 
@@ -100,6 +112,16 @@ collections:
           - { label: Title, name: title, widget: string }
           - { label: "Photo (also used for Google and social media)", name: photo, widget: image, choose_url: true }
           - { label: Text, name: text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
+          - { label: "How I think: title", name: approach_title, widget: string, required: false }
+          - { label: "How I think: text", name: approach_text, widget: markdown, required: false, buttons: [bold, italic, link], editor_components: [] }
+          - label: "How I think: areas of expertise"
+            name: expertise
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
           - { label: "Second section: title", name: section_title, widget: string }
           - { label: "Second section: text", name: section_text, widget: markdown, buttons: [bold, italic, link, bulleted-list], editor_components: [] }
           - { label: "Photos: title", name: photos_title, widget: string }
@@ -130,6 +152,8 @@ collections:
           - { label: "Small line above the title", name: eyebrow, widget: string }
           - { label: Title, name: title, widget: string }
           - { label: Intro, name: intro, widget: text }
+          - { label: "Photo at the top", name: hero_photo, widget: image, choose_url: true, required: false }
+          - { label: "Photo at the top: caption", name: hero_caption, widget: string, required: false }
           - { label: "Key points under the intro", name: highlights, widget: list, field: { label: Point, name: point, widget: string } }
           - { label: "Why this program: title", name: why_title, widget: string }
           - { label: "Why this program: text", name: why_text, widget: markdown, buttons: [bold, italic, link], editor_components: [] }
@@ -178,6 +202,8 @@ collections:
               - { label: Text, name: text, widget: text }
           - { label: "What you finish with: title", name: deliverables_title, widget: string }
           - { label: "What you finish with: intro", name: deliverables_intro, widget: text }
+          - { label: "What you finish with: photo", name: deliverables_photo, widget: image, choose_url: true, required: false }
+          - { label: "What you finish with: photo caption", name: deliverables_caption, widget: string, required: false }
           - label: "What you finish with"
             name: deliverables
             widget: list

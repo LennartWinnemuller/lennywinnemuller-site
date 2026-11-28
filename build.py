@@ -61,58 +61,80 @@ SERVICE = {
     "description": C['program']['seo_description'],
     "areaServed": "Worldwide",
 }
+
+
+# ---------- shared building blocks ----------
+
+def link_button(text, href, primary=True):
+    cls = 'btn' if primary else 'textlink'
+    arrow = '' if primary else ' →'
+    return f'<a class="{cls}" href="{e(href)}">{e(text)}{arrow}</a>'
+
+
+def sec_head(title, link=None, link_text=None, tag='h2'):
+    more = f'<a href="{e(link)}">{e(link_text)} →</a>' if link and link_text else ''
+    return f'<div class="sec-h"><{tag}>{e(title)}</{tag}>{more}</div>'
+
+
 def cta_band(eyebrow=None, title=None, text=None, button=None, link=None):
-    return f'''<section class="dark cta-band">
+    return f'''<section class="cta-band">
     <div class="wrap">
-      <div>
-        <p class="eyebrow">{e(eyebrow or S['cta_eyebrow'])}</p>
-        <h2>{e(title or S['cta_title'])}</h2>
-        <p>{e(text or S['cta_text'])}</p>
+      <div class="cta-inner">
+        <div>
+          <p class="kicker">{e(eyebrow or S['cta_eyebrow'])}</p>
+          <h2>{e(title or S['cta_title'])}</h2>
+          <p>{e(text or S['cta_text'])}</p>
+        </div>
+        {link_button(button or S['cta_button'], link or S['cta_link'])}
       </div>
-      <a class="btn light" href="{e(link or S['cta_link'])}">{e(button or S['cta_button'])}</a>
     </div>
   </section>'''
 
 
-def cards(items, cls='grid', tag=None):
-    t = f'<span class="tag">{e(tag)}</span>' if tag else ''
-    return f'<div class="{cls}">' + ''.join(f'<div class="card">{t}<h3>{e(c["title"])}</h3><p>{e(c["text"])}</p></div>' for c in items) + '</div>'
+def numbered(items, cls='numbered'):
+    """Ruled, numbered list of title + text items (cards in the editor)."""
+    li = ''.join(f'<li><span><b>{e(c["title"])}</b>{e(c["text"])}</span></li>' for c in items)
+    return f'<ol class="{cls}">{li}</ol>'
 
 
-ICONS = {
-    'Instagram': '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
-    'X': '<path d="M4 4l16 16M20 4L4 20"/>',
-    'LinkedIn': '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/>',
-}
+def columns(items, label_key=None):
+    """Items side by side, separated by thin vertical rules, like newspaper columns."""
+    out = ''
+    for c in items:
+        label = f'<p class="col-label">{e(c[label_key])}</p>' if label_key else ''
+        out += f'<div class="col">{label}<h3>{e(c["title"])}</h3><p>{e(c["text"])}</p></div>'
+    return f'<div class="cols-ruled n{min(len(items), 4)}">{out}</div>'
 
 
-def social_links():
-    links = ''.join(f'<a href="{e(url)}" rel="me noopener" target="_blank" aria-label="{name}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{ICONS[name]}</svg><span>{name}</span></a>' for name, url in SOCIAL)
-    return f'<div class="social">{links}</div>' if links else ''
+def social_links(sep=' · '):
+    links = sep.join(f'<a href="{e(url)}" rel="me noopener" target="_blank">{name}</a>' for name, url in SOCIAL)
+    return f'<p class="social">{links}</p>' if links else ''
 
 
-def figure(src, caption, cls='figure'):
-    cap = f'<figcaption>{e(caption)}</figcaption>' if caption else ''
-    return f'<figure class="{cls}"><img src="{e(src)}" alt="{e(caption or "Lenny Winnemuller")}" loading="lazy">{cap}</figure>'
+def figure(src, caption, cls='figure', alt=None, eager=False):
+    if not str(src or '').strip():
+        return ''
+    cap = f'<figcaption>{e(caption)}</figcaption>' if str(caption or '').strip() else ''
+    load = '' if eager else ' loading="lazy"'
+    return f'<figure class="{cls}"><img src="{e(src)}" alt="{e(alt or caption or "Lenny Winnemuller")}"{load}>{cap}</figure>'
 
 
-def portrait(src):
-    return f'<div class="photo"><img class="portrait" src="{e(src)}" alt="Portrait of Lenny Winnemuller" width="400" height="500"></div>'
-
-
-def page(path, title, desc, body, active=None, graph=None, announce=True, og_type='website'):
+def page(path, title, desc, body, active=None, graph=None, announce=True, og_type='website', image=None):
     head_ld = ''
     if graph:
         head_ld = '<script type="application/ld+json">\n' + json.dumps({"@context": "https://schema.org", "@graph": graph}, indent=2, ensure_ascii=False) + '\n</script>\n'
     current = ' aria-current="page"'
     nav = ''.join(f'<a href="{h}"{current if h == active else ""}>{t}</a>' for h, t in NAV)
+    nav += f'<a class="book" href="{e(S["cta_link"])}">Book an intro call</a>'
     # The banner only shows when a banner text is filled in at /admin.
     ann = ''
     if announce and str(S.get('announce_text') or '').strip():
         link = f' · <a href="{e(S.get("announce_url") or S["cta_link"])}">{e(S.get("announce_link"))}</a>' if str(S.get('announce_link') or '').strip() else ''
         ann = f'<div class="announce">{e(S["announce_text"])}{link}</div>\n'
+    latest = f'<a href="{POSTS[0]["path"]}">Latest update: {POSTS[0]["date_label"]}</a>' if POSTS else 'Education and coaching, no investment advice'
     fnav = ''.join(f'<a href="{h}">{t}</a>' for h, t in [('/', 'Home')] + NAV + [('/privacy/', 'Privacy policy')])
     title, desc = e(title), e(desc)
+    og_image = e(absolute(image) if image else PHOTO)
     doc = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -122,17 +144,19 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, og_typ
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{SITE}{path}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/styles.css">
 <link rel="alternate" type="application/rss+xml" title="Market updates by Lenny Winnemuller" href="/updates/feed.xml">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE}{path}">
-<meta property="og:image" content="{e(PHOTO)}">
+<meta property="og:image" content="{og_image}">
 {head_ld}</head>
 <body>
-{ann}<header class="top">
+{ann}<header class="mast">
   <div class="wrap">
+    <div class="mast-top"><span>Amsterdam · Education and coaching, no investment advice</span><span>{latest}</span></div>
     <a class="brand" href="/">Lenny Winnemuller</a>
     <nav class="menu" aria-label="Main">{nav}</nav>
   </div>
@@ -144,8 +168,12 @@ def page(path, title, desc, body, active=None, graph=None, announce=True, og_typ
 
 <footer>
   <div class="wrap">
-    <div class="cols">
-      <div><strong style="color:var(--ink);font-family:var(--serif);font-size:1.1rem;font-weight:400">Lenny Winnemuller</strong><br>{e(S['footer_tagline'])}<br><a href="mailto:{e(S['email'])}">{e(S['email'])}</a>{social_links()}</div>
+    <div class="foot">
+      <div>
+        <p class="foot-name">Lenny Winnemuller</p>
+        <p>{e(S['footer_tagline'])}<br><a href="mailto:{e(S['email'])}">{e(S['email'])}</a></p>
+        {social_links()}
+      </div>
       <nav class="fnav" aria-label="Footer">{fnav}</nav>
     </div>
     <div class="disclaimer">{md(S['disclaimer'])}</div>
@@ -177,6 +205,9 @@ def load_posts():
             'title': str(m['title']).strip(),
             'description': str(m.get('description', '')).strip(),
             'body': markdown(body),
+            'cover': str(m.get('image') or '').strip(),
+            # Picture for lists and social media: the image field, or else the first image in the text.
+            'image': str(m.get('image') or '').strip() or (re.search(r'!\[[^\]]*\]\(([^)\s]+)\)', body) or [None, ''])[1],
             'slug': slug,
             'path': f"/updates/{url or slug}/",
             'old_path': f"/updates/{slug}/" if url and url != slug else None,
@@ -188,70 +219,113 @@ def load_posts():
 POSTS = load_posts()
 
 
+
+def post_meta(p, short=False):
+    if short:
+        return f'<p class="date"><time datetime="{p["date"]}">{p["date_label"].split(" ", 1)[1]}</time></p>'
+    return f'<p class="date"><time datetime="{p["date"]}">{p["week"]} · {p["date_label"]}</time></p>'
+
+
+def front_page(posts):
+    """The latest updates laid out like the front page of a newspaper."""
+    if not posts:
+        return '<p class="muted">The first update is published soon.</p>'
+    lead, rest = posts[0], posts[1:4]
+    img = f'<a href="{lead["path"]}" tabindex="-1"><img src="{e(lead["image"])}" alt="" loading="lazy"></a>' if lead['image'] else ''
+    out = f'<article class="lead-story">{img}{post_meta(lead, True)}<h3><a href="{lead["path"]}">{e(lead["title"])}</a></h3><p>{e(lead["description"])}</p></article>'
+    groups = [rest[:1], rest[1:]] if len(rest) > 1 else [rest]
+    for g in groups:
+        if not g:
+            continue
+        items = ''.join(f'<div class="story">{post_meta(p, True)}<h3><a href="{p["path"]}">{e(p["title"])}</a></h3>' + (f'<p>{e(p["description"])}</p>' if i == 0 else '') + '</div>' for i, p in enumerate(g))
+        out += f'<article>{items}</article>'
+    return f'<div class="front">{out}</div>'
+
+
 def post_list(posts):
     if not posts:
-        return '<div class="empty"><strong style="color:var(--ink)">The first update is published soon.</strong></div>'
-    items = ''.join(f'<li><time datetime="{p["date"]}">{p["week"]} · {p["date_label"]}</time><br><a href="{p["path"]}">{e(p["title"])}</a><p class="muted" style="margin:6px 0 0">{e(p["description"])}</p></li>' for p in posts)
+        return '<p class="muted">The first update is published soon.</p>'
+    items = ''
+    for p in posts:
+        thumb = f'<a class="thumb" href="{p["path"]}" tabindex="-1"><img src="{e(p["image"])}" alt="" loading="lazy"></a>' if p['image'] else ''
+        items += f'<li class="{"has-thumb" if thumb else ""}"><div>{post_meta(p)}<h2><a href="{p["path"]}">{e(p["title"])}</a></h2><p>{e(p["description"])}</p></div>{thumb}</li>'
     return f'<ul class="post-list">{items}</ul>'
 
 
 def build_home():
     h = C['home']
+    facts = ''.join(f'<div><b>{e(f["title"])}</b>{e(f["text"])}</div>' for f in h.get('about_facts', []))
+    quote = ''
+    if str(h.get('quote') or '').strip():
+        quote = f'''
+  <section class="quote-sec">
+    <div class="wrap"><blockquote class="pull">“{e(h['quote'])}”<cite>{e(h.get('quote_author') or 'Lenny Winnemuller')}</cite></blockquote></div>
+  </section>'''
     body = f'''
-  <section class="dark home-hero">
+  <section class="opening">
+    <div class="wrap"><div class="opening-grid">
+      <div>
+        <p class="kicker">{e(h['hero_eyebrow'])}</p>
+        <h1>{md_inline(h['hero_title'])}</h1>
+        <p class="deck">{e(h['hero_text'])}</p>
+        <div class="actions">{link_button(h['hero_button'], '/program/')}{link_button(h['hero_button_call'], S['cta_link'], False)}</div>
+      </div>
+      {figure(h.get('hero_photo'), h.get('hero_caption'), 'figure tall', eager=True)}
+    </div></div>
+  </section>
+
+  <section id="updates">
     <div class="wrap">
-      <p class="eyebrow">{e(h['hero_eyebrow'])}</p>
-      <h1>{e(h['hero_title'])}</h1>
-      <p class="lead">{e(h['hero_text'])}</p>
-      <div class="btns" style="margin-top:24px"><a class="btn light" href="/program/">{e(h['hero_button'])}</a><a class="btn ghost light-ghost" href="{e(S['cta_link'])}">{e(h['hero_button_call'])}</a></div>
+      {sec_head(h['updates_title'], '/updates/', h['updates_button'])}
+      {front_page(POSTS)}
     </div>
   </section>
 
   <section id="about">
-    <div class="wrap split">
-      {portrait(h['photo'])}
-      <div>
-        <p class="eyebrow">{e(h['about_eyebrow'])}</p>
-        <h2>{e(h['about_title'])}</h2>
-        {md(h['about_text'])}
-        <a class="btn ghost" href="/about/">{e(h['about_button'])}</a>
+    <div class="wrap">
+      {sec_head(h['about_eyebrow'], '/about/', h['about_button'])}
+      <div class="about-grid">
+        {figure(h['photo'], None, 'figure portrait', alt='Portrait of Lenny Winnemuller')}
+        <div class="body">
+          <h3>{e(h['about_title'])}</h3>
+          {md(h['about_text'])}
+        </div>
+        <div class="facts">{facts}</div>
+      </div>
+    </div>
+  </section>
+{quote}
+  <section id="program">
+    <div class="wrap">
+      {sec_head(h['program_eyebrow'], '/program/', h['program_button'])}
+      <div class="program-grid">
+        {figure(h.get('program_photo'), h.get('program_caption'))}
+        <div>
+          <h3 class="subhead">{e(h['program_title'])}</h3>
+          <p class="deck small">{e(h['program_intro'])}</p>
+          {numbered(h['program_cards'])}
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="band" id="updates">
-    <div class="wrap">
-      <p class="eyebrow">{e(h['updates_eyebrow'])}</p>
-      <h2>{e(h['updates_title'])}</h2>
-      <p class="lead">{e(h['updates_intro'])}</p>
-      <div style="margin-top:12px">{post_list(POSTS[:3])}</div>
-      <div class="btns" style="margin-top:20px"><a class="btn ghost" href="/updates/">{e(h['updates_button'])}</a></div>
-    </div>
-  </section>
-
-  <section id="program">
-    <div class="wrap">
-      <p class="eyebrow">{e(h['program_eyebrow'])}</p>
-      <h2>{e(h['program_title'])}</h2>
-      <p class="lead">{e(h['program_intro'])}</p>
-      {cards(h['program_cards'], 'grid five', h['program_tag'])}
-      <div class="btns" style="margin-top:28px"><a class="btn" href="/program/">{e(h['program_button'])}</a></div>
-    </div>
-  </section>
+  {cta_band()}
 '''
     page('/', h['seo_title'], h['seo_description'], body, graph=[PERSON, SERVICE])
 
 
 def build_about():
     a = C['about']
+    photos = a.get('photos', [])
+    gallery = ''.join(figure(f['image'], f.get('caption')) for f in photos)
     body = f'''
   <section class="pagehead">
-    <div class="wrap split">
-      {portrait(a['photo'])}
+    <div class="wrap about-head">
+      {figure(a['photo'], None, 'figure portrait', alt='Portrait of Lenny Winnemuller', eager=True)}
       <div>
-        <p class="eyebrow">{e(a['eyebrow'])}</p>
+        <p class="kicker">{e(a['eyebrow'])}</p>
         <h1>{e(a['title'])}</h1>
-        {md(a['text'])}
+        <div class="body dropcap">{md(a['text'])}</div>
         {social_links()}
       </div>
     </div>
@@ -259,15 +333,25 @@ def build_about():
 
   <section>
     <div class="wrap">
-      <h2>{e(a['photos_title'])}</h2>
-      <div class="gallery">{''.join(figure(f['image'], f.get('caption')) for f in a.get('photos', []))}</div>
+      {sec_head(a['photos_title'])}
+      <div class="gallery n{min(len(photos), 3)}">{gallery}</div>
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap narrow">
-      <h2>{e(a['section_title'])}</h2>
-      {md(a['section_text'])}
+  <section>
+    <div class="wrap">
+      {sec_head(a.get('approach_title', ''))}
+      <div class="approach">
+        <div class="essay">{md(a.get('approach_text', ''))}</div>
+        {columns(a.get('expertise', []))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      {sec_head(a['section_title'])}
+      <div class="essay">{md(a['section_text'])}</div>
     </div>
   </section>
 
@@ -280,16 +364,16 @@ def build_updates():
     u = C['updates']
     body = f'''
   <section class="pagehead">
-    <div class="wrap narrow">
-      <p class="eyebrow">{e(u['eyebrow'])}</p>
+    <div class="wrap">
+      <p class="kicker">{e(u['eyebrow'])}</p>
       <h1>{e(u['title'])}</h1>
-      <p class="lead">{e(u['intro'])}</p>
+      <p class="deck">{e(u['intro'])}</p>
     </div>
   </section>
-  <section style="padding-top:0">
-    <div class="wrap narrow">
+  <section class="tight">
+    <div class="wrap">
       {post_list(POSTS)}
-      <p class="muted" style="margin-top:20px;font-size:.9rem"><a href="/updates/feed.xml">RSS feed</a></p>
+      <p class="muted small"><a href="/updates/feed.xml">RSS feed</a></p>
     </div>
   </section>
   {cta_band()}
@@ -303,56 +387,61 @@ def build_program():
     highlights = ''.join(f'<li>{e(t)}</li>' for t in p['highlights'])
     for_points = ''.join(f'<li>{e(t)}</li>' for t in p['for_points'])
     notfor_points = ''.join(f'<li>{e(t)}</li>' for t in p['notfor_points'])
-    quarters = ''.join(f'<div class="quarter"><span class="q">{e(q["label"])}</span><h3>{e(q["title"])}</h3><p>{e(q["text"])}</p></div>' for q in p['quarters'])
     modules = ''.join(f'<tr{" class=review" if not m["title"][:1].isdigit() else ""}><td>{e(m["weeks"])}</td><th scope="row">{e(m["title"])}</th><td>{e(m["defense"])}</td><td>{e(m["portfolio"])}</td></tr>' for m in p['modules'])
     faq_html = ''.join(f'<details><summary>{e(f["question"])}</summary>{md(f["answer"])}</details>\n      ' for f in p['faq'])
     faq_ld = {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": f['question'], "acceptedAnswer": {"@type": "Answer", "text": f['answer']}} for f in p['faq']]}
     body = f'''
-  <section class="pagehead">
-    <div class="wrap">
-      <p class="eyebrow">{e(p['eyebrow'])}</p>
-      <h1>{e(p['title'])}</h1>
-      <p class="lead">{e(p['intro'])}</p>
-      <ul class="highlights">{highlights}</ul>
-      <div class="btns" style="margin-top:24px"><a class="btn" href="{e(p['cta_link'])}">{e(p['cta_button'])}</a></div>
-    </div>
+  <section class="opening">
+    <div class="wrap"><div class="opening-grid">
+      <div>
+        <p class="kicker">{e(p['eyebrow'])}</p>
+        <h1>{e(p['title'])}</h1>
+        <p class="deck">{e(p['intro'])}</p>
+        <ul class="ruled">{highlights}</ul>
+        <div class="actions">{link_button(p['cta_button'], p['cta_link'])}</div>
+      </div>
+      {figure(p.get('hero_photo'), p.get('hero_caption'), 'figure tall', eager=True)}
+    </div></div>
   </section>
 
-  <section class="band">
-    <div class="wrap grid two text-cols">
+  <section>
+    <div class="wrap two-text">
       <div>
-        <h2>{e(p['why_title'])}</h2>
-        {md(p['why_text'])}
+        {sec_head(p['why_title'])}
+        <div class="body">{md(p['why_text'])}</div>
       </div>
       <div>
-        <h2>{e(p['learn_title'])}</h2>
-        {md(p['learn_text'])}
+        {sec_head(p['learn_title'])}
+        <div class="body">{md(p['learn_text'])}</div>
       </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap grid two fit">
-      <div class="card">
-        <h3>{e(p['for_title'])}</h3>
-        <ul class="checklist yes">{for_points}</ul>
+    <div class="wrap two-text">
+      <div>
+        {sec_head(p['for_title'], tag='h2')}
+        <ul class="ruled yes">{for_points}</ul>
       </div>
-      <div class="card">
-        <h3>{e(p['notfor_title'])}</h3>
-        <ul class="checklist no">{notfor_points}</ul>
+      <div>
+        {sec_head(p['notfor_title'], tag='h2')}
+        <ul class="ruled no">{notfor_points}</ul>
       </div>
-    </div>
-    <div class="wrap" style="margin-top:48px">
-      <h2>{e(p['req_title'])}</h2>
-      {cards(p['requirements'], 'grid four')}
     </div>
   </section>
 
-  <section class="band">
+  <section>
     <div class="wrap">
-      <h2>{e(p['year_title'])}</h2>
-      <p class="lead">{e(p['year_intro'])}</p>
-      <div class="quarters">{quarters}</div>
+      {sec_head(p['req_title'])}
+      {columns(p['requirements'])}
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      {sec_head(p['year_title'])}
+      <p class="deck small">{e(p['year_intro'])}</p>
+      {columns(p['quarters'], 'label')}
       <details class="modules">
         <summary>{e(p['modules_button'])}</summary>
         <div class="table-scroll">
@@ -367,41 +456,45 @@ def build_program():
 
   <section>
     <div class="wrap">
-      <h2>{e(p['how_title'])}</h2>
-      {cards(p['how'])}
-    </div>
-  </section>
-
-  <section class="band">
-    <div class="wrap">
-      <h2>{e(p['deliverables_title'])}</h2>
-      <p class="lead">{e(p['deliverables_intro'])}</p>
-      {cards(p['deliverables'], 'grid five')}
+      {sec_head(p['how_title'])}
+      {numbered(p['how'], 'numbered two-up')}
     </div>
   </section>
 
   <section>
-    <div class="wrap narrow">
-      <h2>{e(p['assessed_title'])}</h2>
-      {md(p['assessed_text'])}
+    <div class="wrap program-grid">
+      {figure(p.get('deliverables_photo'), p.get('deliverables_caption'))}
+      <div>
+        {sec_head(p['deliverables_title'])}
+        <p class="deck small">{e(p['deliverables_intro'])}</p>
+        {numbered(p['deliverables'])}
+      </div>
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap split">
-      {portrait(p['coach_photo'])}
-      <div>
-        <p class="eyebrow">{e(p['coach_eyebrow'])}</p>
-        <h2>{e(p['coach_title'])}</h2>
-        {md(p['coach_text'])}
-        <a class="btn ghost" href="/about/">{e(p['coach_button'])}</a>
+  <section class="quote-sec">
+    <div class="wrap">
+      <h2 class="center-title">{e(p['assessed_title'])}</h2>
+      <div class="pull small">{md(p['assessed_text'])}</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      {sec_head(p['coach_eyebrow'], '/about/', p['coach_button'])}
+      <div class="about-grid two">
+        {figure(p['coach_photo'], None, 'figure portrait', alt='Lenny Winnemuller teaching')}
+        <div class="body dropcap">
+          <h3>{e(p['coach_title'])}</h3>
+          {md(p['coach_text'])}
+        </div>
       </div>
     </div>
   </section>
 
   <section class="faq">
     <div class="wrap narrow">
-      <h2>{e(p['faq_title'])}</h2>
+      {sec_head(p['faq_title'])}
       {faq_html}
     </div>
   </section>
@@ -411,30 +504,39 @@ def build_program():
     page('/program/', p['seo_title'], p['seo_description'], body, active='/program/', graph=[SERVICE, faq_ld, PERSON])
 
 
+def captioned_images(body_html):
+    """Turns a Markdown image on its own line into a figure with its description as caption."""
+    return re.sub(r'<p><img src="([^"]+)" alt="([^"]*)"></p>',
+                  lambda m: f'<figure class="figure"><img src="{m.group(1)}" alt="{m.group(2)}" loading="lazy">' + (f'<figcaption>{m.group(2)}</figcaption>' if m.group(2) else '') + '</figure>',
+                  body_html)
+
+
 def build_post(p):
     article = {"@type": "BlogPosting", "@id": SITE + p['path'] + "#article", "headline": p['title'],
                "description": p['description'], "datePublished": p['date'], "author": {"@id": PERSON_ID},
                "publisher": {"@id": PERSON_ID}, "isPartOf": {"@id": SITE + "/updates/#blog"},
-               "mainEntityOfPage": SITE + p['path'], "inLanguage": "en", "image": PHOTO}
+               "mainEntityOfPage": SITE + p['path'], "inLanguage": "en", "image": absolute(p['image']) if p['image'] else PHOTO}
     body = f'''
-  <section class="pagehead">
+  <article class="post">
+    <header class="post-head">
+      <div class="wrap prose">
+        <p class="kicker"><a href="/updates/">Market updates</a> · {p['week']}</p>
+        <h1>{e(p['title'])}</h1>
+        <p class="deck">{e(p['description'])}</p>
+        <p class="byline">By <a href="/about/">Lenny Winnemuller</a> · <time datetime="{p['date']}">{p['date_label']}</time></p>
+      </div>
+    </header>
     <div class="wrap prose">
-      <p class="eyebrow"><a href="/updates/" style="color:inherit;text-decoration:none">Market updates</a> · {p['week']}</p>
-      <h1>{e(p['title'])}</h1>
-      <p class="muted">{p['date_label']} · By <a href="/about/">Lenny Winnemuller</a></p>
+      {figure(p['cover'], None, 'figure cover', alt=p['title'], eager=True) if p['cover'] and p['cover'] not in p['body'] else ''}
+      {captioned_images(p['body'])}
+      <p class="post-disclaimer">{e(S['update_disclaimer'])}</p>
+      <p><a class="textlink" href="/updates/">← All market updates</a></p>
     </div>
-  </section>
-  <section style="padding-top:0">
-    <div class="wrap prose">
-      {p['body']}
-      <p class="muted" style="margin-top:2.4em;font-size:.9rem;border-top:1px solid var(--line);padding-top:1.2em">{e(S['update_disclaimer'])}</p>
-      <p><a href="/updates/">← All market updates</a></p>
-    </div>
-  </section>
+  </article>
   {cta_band()}
 '''
     page(p['path'], f"{p['title']} | {p['week']} | Lenny Winnemuller", p['description'], body,
-         active='/updates/', graph=[article, PERSON], og_type='article')
+         active='/updates/', graph=[article, PERSON], og_type='article', image=p['image'])
 
 
 def build_feed():
@@ -461,7 +563,7 @@ def build_feed():
 
 def build_404():
     page('/404/', 'Page not found | Lenny Winnemuller', 'This page does not exist.',
-         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="lead">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/program/">six-month program</a>.</p></div></section>')
+         '<section class="pagehead"><div class="wrap narrow"><h1>Page not found</h1><p class="deck">This page doesn\'t exist. Go to the <a href="/">homepage</a> or the <a href="/program/">six-month program</a>.</p></div></section>')
     shutil.move(os.path.join(OUT, '404', 'index.html'), os.path.join(OUT, '404.html'))
     os.rmdir(os.path.join(OUT, '404'))
 
