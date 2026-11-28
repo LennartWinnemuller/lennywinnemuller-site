@@ -49,7 +49,9 @@ def markdown(text):
     def flush():
         nonlocal para, lst, quote
         if para:
-            out.append('<p>' + _inline(' '.join(para)) + '</p>')
+            # A line ending in a backslash (how the editor writes Shift+Enter) is a line break.
+            text = ' '.join(x[:-1].rstrip() + '\x00' if x.endswith('\\') else x for x in para)
+            out.append('<p>' + _inline(text).replace('\x00 ', '<br>').replace('\x00', '<br>') + '</p>')
             para = []
         if lst:
             tag, items, start = lst
