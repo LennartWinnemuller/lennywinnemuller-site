@@ -205,6 +205,7 @@ def load_posts():
             'title': str(m['title']).strip(),
             'description': str(m.get('description', '')).strip(),
             'body': markdown(body),
+            'cover': str(m.get('image') or '').strip(),
             # Picture for lists and social media: the image field, or else the first image in the text.
             'image': str(m.get('image') or '').strip() or (re.search(r'!\[[^\]]*\]\(([^)\s]+)\)', body) or [None, ''])[1],
             'slug': slug,
@@ -526,6 +527,7 @@ def build_post(p):
       </div>
     </header>
     <div class="wrap prose">
+      {figure(p['cover'], None, 'figure cover', alt=p['title'], eager=True) if p['cover'] and p['cover'] not in p['body'] else ''}
       {captioned_images(p['body'])}
       <p class="post-disclaimer">{e(S['update_disclaimer'])}</p>
       <p><a class="textlink" href="/updates/">← All market updates</a></p>

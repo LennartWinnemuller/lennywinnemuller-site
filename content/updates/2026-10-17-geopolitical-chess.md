@@ -1,6 +1,7 @@
 ---
 title: Geopolitical chess
 date: 2026-10-17
+image: /images/strait-of-hormuz-map.jpg
 description: How Iran and the United States are applying economic pressure on each other, why Europe and France are paying a higher price, and where Russia fits in.
 ---
 

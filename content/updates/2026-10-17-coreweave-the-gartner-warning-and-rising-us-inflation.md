@@ -1,6 +1,7 @@
 ---
 title: CoreWeave, the Gartner warning and rising US inflation
 date: 2026-10-17
+image: /images/coreweave-logo.jpg
 description: Why CoreWeave's stock fell, what Gartner said about neocloud providers, how the September CPI report fits in, and whether anything fundamentally changed.
 ---
 

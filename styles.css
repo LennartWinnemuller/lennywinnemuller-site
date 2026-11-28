@@ -259,3 +259,4 @@ footer .social { margin-top: 8px; }
 }
 .approach .essay { margin-bottom: 40px; }
 .approach .cols-ruled { border-top: 1px solid var(--hair); padding-top: 22px; }
+.post .prose .figure.cover { margin: 0 0 2em; }
